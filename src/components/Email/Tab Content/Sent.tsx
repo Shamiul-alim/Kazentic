@@ -1,5 +1,5 @@
 import React from "react";
-import emailInboxData from "@/data/emailInboxData.json";
+import emailInboxData from "@/data/emailData.json";
 import { ChevronDown } from "lucide-react";
 
 type emailInboxData = {
@@ -10,19 +10,23 @@ type emailInboxData = {
   timestamp: string;
   isStarred: boolean;
 };
-export default function Sent() {
+type Props = {
+  emails: emailInboxData[];
+};
+
+export default function Sent({ emails }: Props) {
   const tabs = ["All", "Read", "Unread", "Has Attachments"];
   return (
     <div className="w-full h-full bg-[#FFFFFF]">
       {/* Inbox Title Section */}
-      <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-3">
+      <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4">
         <div className="flex felx-row items-center space-x-6">
           <button className="flex justify-center items-center gap-1">
             <img src="/assets/vector.svg" className="w-4 h-4" />
             <ChevronDown className="w-5 h-5 text-[#697588] opacity-80" />
           </button>
           <div className="text-[1.25rem] font-semibold text-[#191F38] leading-[2.125rem] ">
-            Inbox
+            Sent
           </div>
           <div className="text-[#697588] cursor-pointer">
             &#x2022;&#x2022;&#x2022;
@@ -42,6 +46,43 @@ export default function Sent() {
             <span className="font-semibold">&#10230;</span>
           </div>
         </div>
+      </div>
+      {/* Emails List */}
+      <div className="space-y-3">
+        {emails.map((email) => (
+          <div
+            key={email.id}
+            className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] ml-[1.25rem] mr-[1.25rem] flex flex-row items-center justify-between pl-3 pr-3 cursor-pointer"
+          >
+            <div className="flex items-center gap-3">
+              <img src={email.icon} />
+              <button className="w-5 h-5 rounded-full flex items-center justify-center">
+                <img
+                  src={`${
+                    email.isStarred
+                      ? "/assets/starActive.svg"
+                      : "/assets/star.svg"
+                  }`}
+                />
+              </button>
+              <span className="text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">
+                {email.sender}
+              </span>
+            </div>
+
+            <div className="flex flex-col items-center space-y-1">
+              <span className="text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38]">
+                {email.subject}🎉
+              </span>
+            </div>
+
+            <div>
+              <span className="text-[0.875rem] tracking-tighter text-[#697588] font-medium ">
+                {email.timestamp}
+              </span>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

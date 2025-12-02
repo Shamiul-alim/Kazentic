@@ -1,38 +1,71 @@
 "use client";
 import React, { useState } from "react";
 import tabsData from "@/data/tabsData.json";
-import { Button } from "../ui/button";
-import Inbox from "./Tab Content/inbox";
-import Sent from "./Tab Content/sent";
+import InboxData from "@/data/emailData.json";
+import Inbox from "./Tab Content/Inbox";
+import Sent from "./Tab Content/Sent";
 import Draft from "./Tab Content/Draft";
 import Starred from "./Tab Content/Starred";
 import Spam from "./Tab Content/Spam";
 import Trash from "./Tab Content/Trash";
 import AllMail from "./Tab Content/AllMail";
+import MessageForm from "./MessageForm";
 
 export default function DashboardSection() {
   const [activeTab, setActiveTab] = useState("Inbox");
-
+  const [fadeKey, setFadeKey] = useState(0);
+  const [isMessageFormOpen, setMessageFormOpen] = useState(false);
   const handleTabClick = (tabName: string) => {
-    setActiveTab(tabName);
+    setFadeKey((prev) => prev + 1);
+    setTimeout(() => {
+      setActiveTab(tabName);
+    }, 300);
+  };
+
+  const filterEmails = () => {
+    switch (activeTab) {
+      case "Inbox":
+      case "All Mail":
+        return InboxData;
+      case "Starred":
+        return InboxData.filter((email) => email.isStarred);
+      case "Sent":
+        return InboxData.filter((email) => email.isSent);
+      case "Draft":
+        return InboxData.filter((email) => email.isDraft);
+      case "Spam":
+        return InboxData.filter((email) => email.isSpam);
+      case "Trash":
+        return InboxData.filter((email) => email.isTrash);
+      default:
+        return InboxData;
+    }
   };
   const renderTabContent = () => {
     switch (activeTab) {
       case "Inbox":
-        return <Inbox />;
+        return <Inbox emails={filterEmails()} />;
       case "Sent":
-        return <Sent />;
+        return <Sent emails={filterEmails()} />;
       case "All Mail":
-        return <AllMail />;
+        return <AllMail emails={filterEmails()} />;
       case "Draft":
-        return <Draft />;
+        return <Draft emails={filterEmails()} />;
       case "Starred":
-        return <Starred />;
+        return <Starred emails={filterEmails()} />;
       case "Spam":
-        return <Spam />;
+        return <Spam emails={filterEmails()} />;
       case "Trash":
-        return <Trash />;
+        return <Trash emails={filterEmails()} />;
     }
+  };
+
+  const openMessageForm = () => {
+    setMessageFormOpen(true);
+  };
+
+  const closeMessageForm = () => {
+    setMessageFormOpen(false);
   };
 
   return (
@@ -86,13 +119,23 @@ export default function DashboardSection() {
           ))}
         </div>
         <div className="">
-          <button className="bg-[#4157FE] text-[#FFFFFF] text-[0.875rem] font-medium flex flex-row justify-center items-center gap-1 py-1.5 px-2 rounded-lg hover:bg-blue-800 ">
+          <button
+            onClick={openMessageForm}
+            className="bg-[#4157FE] text-[#FFFFFF] text-[0.875rem] font-medium flex flex-row justify-center items-center gap-1 py-1.5 px-2 rounded-lg hover:bg-blue-800 "
+          >
             <img src="/assets/plus.svg" className="w-3 h-3" />
             <span>New Message</span>
           </button>
         </div>
       </div>
-      <div className="">{renderTabContent()}</div>
+      <div
+        key={fadeKey}
+        className="transition-all duration-700 ease-out opacity-0 transform scale-95"
+        style={{ opacity: 1, transform: "scale(1)" }}
+      >
+        {renderTabContent()}
+      </div>
+      {isMessageFormOpen && <MessageForm onClose={closeMessageForm} />}
     </div>
   );
 }

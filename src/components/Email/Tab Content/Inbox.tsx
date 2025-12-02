@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import emailInboxData from "@/data/emailInboxData.json";
+import emailInboxData from "@/data/emailData.json";
 import { ChevronDown } from "lucide-react";
 import path from "path";
 
@@ -12,8 +12,11 @@ type emailInboxData = {
   timestamp: string;
   isStarred: boolean;
 };
+type Props = {
+  emails: emailInboxData[];
+};
 
-export default function Inbox() {
+export default function Inbox({ emails }: Props) {
   const tabs = ["All", "Read", "Unread", "Has Attachments"];
   return (
     <div className="w-full h-full bg-[#FFFFFF]">
@@ -49,10 +52,10 @@ export default function Inbox() {
 
       {/* Emails List */}
       <div className="space-y-3">
-        {emailInboxData.map((email) => (
+        {emails.map((email) => (
           <div
             key={email.id}
-            className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] ml-[1.25rem] mr-[1.25rem] flex flex-row items-center justify-between pl-3 pr-3 cursor-pointer"
+            className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] ml-[1.25rem] mr-[1.25rem] flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer"
           >
             <div className="flex items-center gap-3">
               <img src={email.icon} />

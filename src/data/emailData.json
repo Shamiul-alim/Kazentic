@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "icon": "/assets/Kemail.svg",
+        "sender": "Kazentic",
+        "subject": "Welcome Aboard Alif!",
+        "timestamp": "Aug 9, 2025 • 10:00 AM",
+        "isStarred": true,
+        "isSent": false,
+        "isDraft": false,
+        "isSpam": false,
+        "isTrash": false
+    },
+    {
+        "id": 2,
+        "icon": "/assets/Kemail.svg",
+        "sender": "Kazentic",
+        "subject": "Welcome Aboard Alif!",
+        "timestamp": "Aug 9, 2025 • 10:00 AM",
+        "isStarred": false,
+        "isSent": true,
+        "isDraft": false,
+        "isSpam": false,
+        "isTrash": false
+    },
+    {
+        "id": 3,
+        "icon": "/assets/Kemail.svg",
+        "sender": "Kazentic",
+        "subject": "Welcome Aboard Alif!",
+        "timestamp": "Aug 9, 2025 • 10:00 AM",
+        "isStarred": true,
+        "isSent": false,
+        "isDraft": false,
+        "isSpam": false,
+        "isTrash": false
+    },
+    {
+        "id": 4,
+        "icon": "/assets/Kemail.svg",
+        "sender": "Kazentic",
+        "subject": "Welcome Aboard Alif!",
+        "timestamp": "Aug 9, 2025 • 10:00 AM",
+        "isStarred": false,
+        "isSent": false,
+        "isDraft": false,
+        "isSpam": true,
+        "isTrash": false
+    },
+    {
+        "id": 5,
+        "icon": "/assets/Kemail.svg",
+        "sender": "Kazentic",
+        "subject": "Draft: Your Application Status",
+        "timestamp": "Aug 9, 2025 • 11:00 AM",
+        "isStarred": false,
+        "isSent": false,
+        "isDraft": true,
+        "isSpam": false,
+        "isTrash": false
+    },
+    {
+        "id": 6,
+        "icon": "/assets/Kemail.svg",
+        "sender": "Kazentic",
+        "subject": "Draft: Job Application Follow Up",
+        "timestamp": "Aug 9, 2025 • 11:30 AM",
+        "isStarred": false,
+        "isSent": false,
+        "isDraft": true,
+        "isSpam": false,
+        "isTrash": false
+    },
+    {
+        "id": 7,
+        "icon": "/assets/Kemail.svg",
+        "sender": "Kazentic",
+        "subject": "Spam: New Opportunity",
+        "timestamp": "Aug 9, 2025 • 12:00 PM",
+        "isStarred": false,
+        "isSent": false,
+        "isDraft": false,
+        "isSpam": true,
+        "isTrash": false
+    },
+    {
+        "id": 8,
+        "icon": "/assets/Kemail.svg",
+        "sender": "Kazentic",
+        "subject": "Trash: Important Announcement",
+        "timestamp": "Aug 9, 2025 • 12:30 PM",
+        "isStarred": false,
+        "isSent": false,
+        "isDraft": false,
+        "isSpam": false,
+        "isTrash": true
+    }
+]
