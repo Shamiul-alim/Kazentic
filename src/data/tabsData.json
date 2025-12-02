@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Inbox",
+        "icon": "/assets/emailInbox.svg",
+        "activeIcon": "/assets/emailInboxActive.svg"
+    },
+    {
+        "name": "Sent",
+        "icon": "/assets/emailSent.svg",
+        "activeIcon": "/assets/emailSentActive.svg"
+    },
+    {
+        "name": "All Mail",
+        "icon": "/assets/emailAll.svg",
+        "activeIcon": "/assets/emailAllActive.svg"
+    },
+    {
+        "name": "Draft",
+        "icon": "/assets/emailDraft.svg",
+        "activeIcon": "/assets/emailDraftActive.svg"
+    },
+    {
+        "name": "Starred",
+        "icon": "/assets/emailStarred.svg",
+        "activeIcon": "/assets/emailStarredActive.svg"
+    },
+    {
+        "name": "Spam",
+        "icon": "/assets/emailSpam.svg",
+        "activeIcon": "/assets/emailSpamActive.svg"
+    },
+    {
+        "name": "Trash",
+        "icon": "/assets/emailTrash.svg",
+        "activeIcon": "/assets/emailTrashActive.svg"
+    }
+]

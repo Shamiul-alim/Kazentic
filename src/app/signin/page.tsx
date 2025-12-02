@@ -7,15 +7,18 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 
-
 export default function Signin() {
-    const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>();
-      const router = useRouter();
-    
-      const onSubmit: SubmitHandler<FieldValues> = (data) => {   
-        console.log(data);
-        router.push('/email');
-    };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValues>();
+  const router = useRouter();
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    console.log(data);
+    router.push("/email");
+  };
 
   return (
     <div className="min-h-screen flex bg-[#FFFFFF]">
@@ -65,9 +68,7 @@ export default function Signin() {
 
             {/*Password*/}
             <div>
-              <Label>
-                Password
-              </Label>
+              <Label>Password</Label>
               <Input
                 type="password"
                 placeholder="Must be of at least 8 characters"
@@ -99,10 +100,7 @@ export default function Signin() {
             </div>
 
             {/* Submit Button */}
-            <Button
-              type="submit"
-              variant="private"
-            >
+            <Button type="submit" variant="private">
               Sign in
             </Button>
 
@@ -112,7 +110,9 @@ export default function Signin() {
                 Don’t have an account?{" "}
                 <a
                   className="cursor-pointer text-[#4157FE]"
-                  onClick={()=>{router.push('/signup')}}
+                  onClick={() => {
+                    router.push("/signup");
+                  }}
                 >
                   Sign up
                 </a>

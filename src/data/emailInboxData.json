@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "icon": "/assets/Kemail.svg",
+        "sender": "Kazentic",
+        "subject": "Welcome Aboard Alif!",
+        "timestamp": "Aug 9, 2025 • 10:00 AM",
+        "isStarred": true
+    },
+    {
+        "id": 2,
+        "icon": "/assets/Kemail.svg",
+        "sender": "Kazentic",
+        "subject": "Welcome Aboard Alif!",
+        "timestamp": "Aug 9, 2025 • 10:00 AM",
+        "isStarred": false
+    },
+    {
+        "id": 3,
+        "icon": "/assets/Kemail.svg",
+        "sender": "Kazentic",
+        "subject": "Welcome Aboard Alif!",
+        "timestamp": "Aug 9, 2025 • 10:00 AM",
+        "isStarred": true
+    },
+    {
+        "id": 4,
+        "icon": "/assets/Kemail.svg",
+        "sender": "Kazentic",
+        "subject": "Welcome Aboard Alif!",
+        "timestamp": "Aug 9, 2025 • 10:00 AM",
+        "isStarred": false
+    }
+]

@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import SideMenu2 from "@/components/Email/SideMenu2";
-import DashboardSection from "@/components/Email/SidebarMenu/DashboardSection";
-import EmailSection from "@/components/Email/SidebarMenu/EmailSection";
+import SideMenu2 from "@/components/Sidemenu/SideMenu2";
+import DashboardSection from "@/components/Dashboard/DashboardSection";
+import EmailSection from "@/components/Email/EmailSection";
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
