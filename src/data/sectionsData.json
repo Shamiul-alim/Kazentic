@@ -1,0 +1,85 @@
+[
+  {
+    "name": "Dashboard",
+    "icon": "/assets/dashboardIcon.svg"
+  },
+  {
+    "name": "Manage",
+    "icon": "/assets/manageIcon.svg",
+    "hasDropdown": true,
+    "children": [
+      {
+        "name": "Settings",
+        "icon": "/assets/manageIcon.svg"
+      },
+      {
+        "name": "Employees",
+        "icon": "/assets/manageIcon.svg"
+      },
+      {
+        "name": "Guests",
+        "icon": "/assets/manageIcon.svg"
+      },
+      {
+        "name": "Teams",
+        "icon": "/assets/manageIcon.svg"
+      },
+      {
+        "name": "Access Control",
+        "icon": "/assets/manageIcon.svg"
+      },
+      {
+        "name": "Statistics",
+        "icon": "/assets/manageIcon.svg"
+      },
+      {
+        "name": "Configurations",
+        "icon": "/assets/manageIcon.svg"
+      }
+    ]
+  },
+  {
+    "name": "Time Tracker",
+    "icon": "/assets/timetrackerIcon.svg"
+  },
+  {
+    "name": "Tasks",
+    "icon": "/assets/taskIcon.svg"
+  },
+  {
+    "name": "Reports",
+    "icon": "/assets/reportIcon.svg"
+  },
+  {
+    "name": "Email",
+    "icon": "/assets/emailIcon.svg"
+  },
+  {
+    "name": "Storage",
+    "icon": "/assets/storageIcon.svg"
+  },
+  {
+    "name": "Calendar",
+    "icon": "/assets/calendarIcon.svg"
+  },
+  {
+    "name": "Notes",
+    "icon": "/assets/notesIcon.svg"
+  },
+  {
+    "name": "HRM",
+    "icon": "/assets/hrmIcon.svg"
+  },
+  {
+    "name": "CRM",
+    "icon": "/assets/crmIcon.svg"
+  },
+  {
+    "name": "Chat",
+    "icon": "/assets/chatIcon.svg"
+  },
+  {
+    "name": "Forms",
+    "icon": "/assets/formsIcon.svg"
+  }
+]
