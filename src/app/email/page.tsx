@@ -17,12 +17,11 @@ export default function Page() {
   };
   return (
     <div className="flex">
-      <div className="">
-        <SideMenu2
-          setActiveSection={setActiveSection}
-          activeSection={activeSection}
-        />
-      </div>
+      <SideMenu2
+        setActiveSection={setActiveSection}
+        activeSection={activeSection}
+      />
+
       <div className="flex-1">{renderActiveSection()}</div>
     </div>
   );

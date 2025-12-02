@@ -59,7 +59,7 @@ export default function Topbar() {
         <div className="leading-3 pt-1 text-[#FFFFFF]">
           <div className="font-bold text-[0.813rem]">Shihab</div>
           <div className="text-[0.75rem] text-opacity-70 ">
-            shihab@kazentic.com
+            shihab&#64;kazentic.com
           </div>
         </div>
         <img src="/assets/moreB.svg" className="w-5 h-5"></img>
