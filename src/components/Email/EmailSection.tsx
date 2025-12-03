@@ -87,15 +87,15 @@ export default function DashboardSection() {
         <div className="flex flex-row  py-[0.688rem]  border-r border-[#EBEBEB] space-x-2  w-fit pr-5  ">
           <div className=" rounded-full bg-[#4157FE] w-[1.875rem] h-[1.875rem] flex justify-center items-center">
             <span className="text-[0.832rem] font-normal text-[#FFFFFF]">
-              S
+              A
             </span>
           </div>
           <div className="flex flex-col justify-center space-y-1.5">
             <span className="text-[#191F38]  text-[0.875rem] font-medium leading-[0.635rem] tracking-tighter ">
-              Shamiul Alim
+              Alif Hassan
             </span>
             <span className="text-[#00000080] text-opacity-50 font-medium text-[0.75rem] leading-[0.625rem] tracking-tighter">
-              shihab@deepchainlabs.com
+              alif@deepchainlabs.com
             </span>
           </div>
         </div>

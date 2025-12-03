@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import SideMenu2 from "@/components/Sidemenu/SideMenu2";
+import SideMenu2 from "@/components/Sidemenu/SideMenu";
 import DashboardSection from "@/components/Dashboard/DashboardSection";
 import EmailSection from "@/components/Email/EmailSection";
 

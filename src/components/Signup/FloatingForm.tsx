@@ -1,5 +1,8 @@
 import React from "react";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
+import { Button } from "../ui/button";
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
 
 interface FloatingFormProps {
   onClose: () => void;
@@ -21,7 +24,7 @@ const FloatingForm: React.FC<FloatingFormProps> = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 flex  justify-center  items-center bg-gray-500 bg-opacity-50 z-50">
-      <div className="bg-white p-6 rounded-lg w-[80%] max-w-2xl h-[100vh] overflow-y-auto relative hide-scrollbar">
+      <div className="bg-[#FFFFFF] p-6 rounded-lg w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] xl:w-[40%] h-[100vh] overflow-y-auto relative hide-scrollbar">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 w-6 h-6 rounded-full bg-blue-100  text-blue-600 text-[1.6rem] font-normal flex justify-center text-center items-center pb-1"
@@ -33,40 +36,33 @@ const FloatingForm: React.FC<FloatingFormProps> = ({ onClose }) => {
             className=" flex justify-center w-[3.8rem] h-[3.8rem]"
             src="/assets/frame.png"
           ></img>
-          <h2 className="text-[1.25rem]font-semibold text-center  text-[#191F38] leading-[2.125rem]">
+          <h2 className="text-[1.25rem] font-semibold text-center  text-[#191F38] leading-[2.125rem]">
             Claim Organization Ownership
           </h2>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mt-6">
           {/*Search*/}
-          <div className="flex flex-row  gap-4 ">
-            {/* Search Input */}
-            <div className="flex items-center border border-[#E5E5E5] rounded-lg">
-              <img src="/assets/search.svg" className="w-9 h-6 pl-2"></img>
+          <div className="flex flex-row gap-4">
+            <div className="flex items-center border border-[#E5E5E5] rounded-lg flex-1">
+              <img src="/assets/search.svg" className="w-9 h-6 pl-2" />
               <input
                 type="text"
                 placeholder="Search your workspaces through email"
-                className="w-[25rem] md:w-[30rem] h-[2.188rem] py-1 pb-2 px-4 border-none rounded-lg focus:outline-none hover:bg-gray-100"
+                className="w-full h-[2.188rem] text-[0.875rem] font-medium tracking-tight py-1 px-4 border-none rounded-lg focus:outline-none hover:bg-gray-100"
               />
             </div>
-
-            {/* Search Button */}
-            <button className="bg-[rgb(65,87,254)] text-[#FFFFFF] font-medium text-[0.875rem] py-1 px-6 rounded-lg hover:bg-blue-700 transition duration-300 ml-auto">
+            <button className="bg-[#4157fe] text-[#FFFFFF] font-medium text-[0.875rem] py-1 px-6 rounded-lg hover:bg-blue-700 transition duration-300">
               Search
             </button>
           </div>
           {/* First / Last Name */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="font-medium text-[#191F38] text-[0.881]">
-                First Name
-              </label>
-              <input
+              <Label>First Name</Label>
+              <Input
                 {...register("firstName", {
                   required: "First name is required",
                 })}
-                className="w-full h-[2.188rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100"
               />
               {errors.firstName && (
                 <p className="text-red-500">
@@ -76,13 +72,9 @@ const FloatingForm: React.FC<FloatingFormProps> = ({ onClose }) => {
             </div>
 
             <div>
-              <label className="font-medium text-[#191F38] text-[0.881]">
-                Last Name
-              </label>
-              <input
+              <Label>Last Name</Label>
+              <Input
                 {...register("lastName", { required: "Last name is required" })}
-                className="w-full h-[2.188rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100"
               />
               {errors.lastName && (
                 <p className="text-red-500">
@@ -95,10 +87,8 @@ const FloatingForm: React.FC<FloatingFormProps> = ({ onClose }) => {
           {/*Organization Email/ Phone Number*/}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="font-medium text-[#191F38] text-[0.881]">
-                Organization Email
-              </label>
-              <input
+              <Label>Organization Email</Label>
+              <Input
                 {...register("email", {
                   required: "Email is required",
                   pattern: {
@@ -106,30 +96,30 @@ const FloatingForm: React.FC<FloatingFormProps> = ({ onClose }) => {
                     message: "Invalid email format",
                   },
                 })}
-                className="w-full h-[2.188rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100"
               />
               {errors.email && (
                 <p className="text-red-500">{String(errors.email.message)}</p>
               )}
             </div>
 
+            {/* Mobile number */}
             <div>
-              <label className="font-medium text-[#191F38] text-[0.881]">
-                Phone No.
-              </label>
+              <Label>Phone No.</Label>
               <div className="flex gap-3">
                 <select
                   {...register("code")}
-                  className=" h-[2.188rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 outline-none placeholder:text-[0.9rem] 
+                  className="h-[2.516rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 outline-none placeholder:text-[0.9rem] 
                     hover:bg-gray-100 pr-1"
                 >
-                  <option value="+880">
-                    <span className="fi fi-bd"></span> +880
+                  <option
+                    value="+880"
+                    className="font-medium text-[0.75rem] leading-[1.25rem] "
+                  >
+                    +880
                   </option>
                 </select>
 
-                <input
+                <Input
                   {...register("phone", {
                     required: "Phone number is required",
                     pattern: {
@@ -137,21 +127,17 @@ const FloatingForm: React.FC<FloatingFormProps> = ({ onClose }) => {
                       message: "Invalid phone number",
                     },
                   })}
-                  placeholder=""
-                  className="w-full h-[2.188rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100"
+                  placeholder="1757778981"
                 />
-                {errors.phone && (
-                  <p className="text-red-500">{String(errors.phone.message)}</p>
-                )}
               </div>
+              {errors.phone && (
+                <p className="text-red-500">{String(errors.phone.message)}</p>
+              )}
             </div>
           </div>
           {/*Description*/}
           <div>
-            <label className="font-medium text-[#191F38] text-[0.881]">
-              Description
-            </label>
+            <Label>Description</Label>
             <textarea
               rows={3}
               className="w-full  mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 outline-none placeholder:text-[0.9rem] 
@@ -160,12 +146,10 @@ const FloatingForm: React.FC<FloatingFormProps> = ({ onClose }) => {
           </div>
 
           <div>
-            <label className="font-medium text-[#191F38] text-[0.881]">
-              Required Action
-            </label>
+            <Label>Required Action</Label>
             <div className="relative">
               <select
-                className=" bg-gray-100 w-full border border-gray-200  rounded-lg px-2 py-1  mt-1  outline-none 
+                className=" bg-gray-100 w-full border border-gray-200  rounded-lg px-2 py-2  mt-1  outline-none 
                     hover:bg-gray-100 text-sm font-medium text-gray-600 cursor-pointer appearance-none"
                 defaultValue=""
               >
@@ -185,9 +169,7 @@ const FloatingForm: React.FC<FloatingFormProps> = ({ onClose }) => {
 
           {/* Upload picture */}
           <div className="">
-            <label className="font-medium text-[#191F38] text-[0.881]">
-              Upload a picture
-            </label>
+            <Label>Upload a picture</Label>
             <div className="flex flex-row items-center  gap-2 mb-3 mt-3">
               <div className="w-12 h-12 flex justify-center items-center rounded-full bg-[#F2F9FE]">
                 <img src="/assets/upload.svg" className="w-5 h-5" />

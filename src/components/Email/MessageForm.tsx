@@ -2,58 +2,112 @@
 import React, { useState } from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
+import { ChevronDown } from "lucide-react";
+import Spam from "./Tab Content/Spam";
+import { Button } from "../ui/button";
 
 export default function MessageForm({ onClose }: { onClose: () => void }) {
+  const tabs = [
+    "b",
+    "Italic",
+    "Underline",
+    "icon1",
+    "icon2",
+    "icon3",
+    "icon4",
+    "icon5",
+    "icon6",
+    "icon7",
+  ];
   return (
-    <div className="fixed top-0 right-0 w-[34.375rem] h-full bg-[#FFFFFF] z-50 shadow-lg rounded-l-lg">
-      <div className="flex justify-between items-center h-[3.188rem] p-4 border-b border-[#E5E9EB]">
-        <h2 className="text-[1.25rem] font-semibold tracking-tight text-[#191F38]">
-          New Message
-        </h2>
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 w-6 h-6 rounded-full bg-blue-100  text-blue-600 text-[1.5rem] font-normal flex justify-center text-center items-center pb-1"
-        >
-          &times;
-        </button>
-      </div>
-      <div className="p-4">
-        <form>
-          <div className="mb-4">
-            <Label>From</Label>
-            <Input type="email" value="Johndoe@gmail.com" readOnly />
-          </div>
-          <div className="mb-4">
-            <Label className="flex justify-between mr-2">
-              <div>To</div>
-              <div className="space-x-1">
-                <span>CC </span>
-                <span>BCC</span>
+    <div className="fixed top-0 right-0 w-[34.375rem] h-full bg-[#FFFFFF] z-50 shadow-lg rounded-l-lg flex flex-col justify-between">
+      <div>
+        <div className="flex justify-between items-center h-[3.188rem] p-4 border-b border-[rgb(229,233,235)]">
+          <h2 className="text-[1.25rem] font-semibold tracking-tight text-[#191F38]">
+            New Message
+          </h2>
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-6 h-6 rounded-full bg-blue-100  text-blue-600 text-[1.5rem] font-normal flex justify-center text-center items-center pb-1"
+          >
+            &times;
+          </button>
+        </div>
+        <div className="p-4">
+          <form>
+            <div className="mb-4">
+              <Label>From</Label>
+              <Input type="email" value="Johndoe@gmail.com" readOnly />
+            </div>
+            <div className="mb-4">
+              <Label className="flex justify-between mr-2">
+                <div>To</div>
+                <div className="space-x-1">
+                  <span>CC </span>
+                  <span>BCC</span>
+                </div>
+              </Label>
+              <Input type="email" />
+            </div>
+            <div className="mb-4">
+              <Label>Subject</Label>
+              <Input type="text" />
+            </div>
+            <div className="flex flex-row items-center h-[2.516rem] w-full rounded-lg mt-1  border-[0.063rem] border-input bg-[#FFFFFF] px-2 py-2 space-x-6">
+              <div className="flex flex-row gap-2">
+                <img
+                  src="/assets/FloatingMessageLeftIcon.svg"
+                  className="w-4 cursor-pointer"
+                />
+                <img
+                  src="/assets/FloatingMessageRightIcon.svg"
+                  className="w-4 cursor-pointer"
+                />
               </div>
-            </Label>
-            <Input type="email" />
+              <div className="flex flex-row items-center">
+                <span className="font-normal cursor-pointer text-[0.875rem] text-[#191F38]">
+                  Arial
+                </span>
+                <ChevronDown className="text-[#191F38] w-4 cursor-pointer" />
+              </div>
+              <div className="flex flex-row items-center">
+                <img src="/assets/vectorM.svg" />
+                <ChevronDown className="text-[#191F38] w-4 cursor-pointer" />
+              </div>
+              <div className="flex flex-row items-center space-x-4">
+                {tabs.map((tab) => (
+                  <img src={`/assets/${tab}.svg`} className="" />
+                ))}
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div className="p-5 mt-auto flex flex-col justify-start space-y-5">
+        <div className="flex flex-col gap-2">
+          <span className="text-[0.875rem] font-medium tracking-tight text-[#697588]">
+            Regards,
+          </span>
+          <span className="text-[1rem] font-medium tracking-tight text-[#191F38] leading-[1.25rem]">
+            John Doe
+          </span>
+        </div>
+        <div className="h-[0.1rem] bg-[#EBEBEB]"></div>
+        <div className="flex  flex-row justify-between">
+          <div className="flex flex-row gap-3">
+            <img src="/assets/trash.svg" className="w-4" />
+            <img src="/assets/lock.svg" className="w-4" />
+            <img src="/assets/clock.svg" className="w-4" />
           </div>
-          <div className="mb-4">
-            <Label>Subject</Label>
-            <Input type="text" />
-          </div>
-          <div className="flex h-[2.516rem] w-full rounded-lg mt-1  border-[0.063rem] border-input bg-[#FFFFFF] px-2 py-2 pb-3"></div>
-          <div className="flex justify-between items-center">
-            <button
-              type="button"
-              className="text-[#4157FE] font-medium"
-              onClick={onClose}
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="bg-[#4157FE] text-white p-2 rounded-md"
-            >
+          <div className="flex flex-row gap-3 justify-center items-center">
+            <span className="text-[#697588] text-[0.875rem] font-medium tracking-tight">
+              Saved at 4:56 PM
+            </span>
+            <button className="px-3 py-1 bg-[#4157FE] rounded-md text-[#FFFFFF] cursor-pointer text-[0.875rem]">
               Send
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
