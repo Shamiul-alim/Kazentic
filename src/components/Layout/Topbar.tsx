@@ -7,7 +7,7 @@ export default function Topbar() {
       <div className="flex flex-row justify-center items-center w-[60%]">
         {/*Logo*/}
         <Image
-          src="/assets/k.svg"
+          src="/assets/K.svg"
           className="flex justify-start"
           alt="icon"
           width={50}
