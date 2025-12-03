@@ -14,9 +14,14 @@ type SectionItem = {
 type Props = {
   setActiveSection: (section: string | null) => void;
   activeSection: string | null;
+  setIsSidebarOpen: (open: boolean) => void;
 };
 
-export default function SideMenu({ setActiveSection, activeSection }: Props) {
+export default function SideMenu({
+  setActiveSection,
+  activeSection,
+  setIsSidebarOpen,
+}: Props) {
   const [isManageOpen, setIsManageOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -49,7 +54,7 @@ export default function SideMenu({ setActiveSection, activeSection }: Props) {
         >
           <Image src={section.icon} alt="icon" width={18} height={18} />
           <span>{section.name}</span>
-          <div className="flex w-auto pr-2">
+          <div className="flex w-auto pr-5">
             {section.hasDropdown && (
               <ChevronDown
                 className={`transition-transform  duration-300  ml-12  ${
@@ -82,9 +87,10 @@ export default function SideMenu({ setActiveSection, activeSection }: Props) {
         <Image
           alt="icon"
           src="/assets/sidemenu.svg"
-          className="flex ml-auto"
+          className="flex cursor-pointer ml-auto"
           width={16}
           height={16}
+          onClick={() => setIsSidebarOpen(false)}
         />
       </div>
 
