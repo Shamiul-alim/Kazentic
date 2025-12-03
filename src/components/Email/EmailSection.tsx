@@ -103,7 +103,7 @@ export default function DashboardSection() {
             </span>
           </div>
         </div>
-        <div className="flex flex-row  space-x-1 ">
+        <div className="flex flex-row  space-x-1 pl-2 pr-2">
           {tabsData.map((tab) => (
             <button
               onClick={() => handleTabClick(tab.name)}
