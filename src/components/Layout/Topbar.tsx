@@ -1,17 +1,25 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Topbar() {
   return (
     <div className="flex justify-between h-[2.375rem]  items-center">
       <div className="flex flex-row justify-center items-center w-[60%]">
         {/*Logo*/}
-        <img src="/assets/k.svg" className="flex justify-start" />
+        <Image
+          src="/assets/k.svg"
+          className="flex justify-start"
+          alt="icon"
+          width={50}
+          height={50}
+        />
         {/* Search Bar Section */}
         <div className="flex justify-center items-center h-7 ml-auto  bg-transparent border border-gray-500 rounded-lg w-[40%] max-w-xl pl-4 mr-3 font-medium">
-          <img
+          <Image
             src="/assets/topbarSearch.svg"
             alt="Search Icon"
-            className="w-5 h-5"
+            width={20}
+            height={20}
           />
           <input
             type="text"
@@ -19,7 +27,12 @@ export default function Topbar() {
             className="w-full h- bg-transparent text-[#FFFFFF] placeholder-[#FFFFFF] focus:outline-none ml-2"
           />
           <div className="ml-auto h-7  pr-1 border-l-2 border-gray-500 pl-1 flex justify-center items-center">
-            <img className="w-6 h-6" src="/assets/topbarDeco.svg" />
+            <Image
+              src="/assets/topbarDeco.svg"
+              alt="icon"
+              width={24}
+              height={24}
+            />
           </div>
         </div>
       </div>
@@ -28,20 +41,17 @@ export default function Topbar() {
       <div className="flex items-center space-x-4 ml-auto pr">
         {/* Notification Icon */}
         <button className="text-white">
-          <img
-            src="/assets/notification.svg" // Replace with your notification icon path
+          <Image
+            src="/assets/notification.svg"
             alt="Notification"
-            className="w-5 h-5"
+            width={20}
+            height={20}
           />
         </button>
 
         {/* Menu */}
         <button className="text-white">
-          <img
-            src="/assets/menu.svg" // Replace with your grid icon path
-            alt="Menu"
-            className="w-4 h-4"
-          />
+          <Image src="/assets/menu.svg" alt="Menu" height={16} width={16} />
         </button>
       </div>
 
@@ -50,10 +60,12 @@ export default function Topbar() {
       {/* User Profile Icon */}
       <div className="flex items-center space-x-2 pr-4">
         <div className="w-8 h-8 rounded-full">
-          <img
+          <Image
             src="/assets/profile.svg"
             alt="Profile"
-            className="w-8 h-8 rounded-full"
+            width={32}
+            height={32}
+            className=" rounded-full"
           />
         </div>
         <div className="leading-3 pt-1 text-[#FFFFFF]">
@@ -62,7 +74,7 @@ export default function Topbar() {
             shihab&#64;kazentic.com
           </div>
         </div>
-        <img src="/assets/moreB.svg" className="w-5 h-5"></img>
+        <Image src="/assets/moreB.svg" alt="icon" width={20} height={20} />
       </div>
     </div>
   );

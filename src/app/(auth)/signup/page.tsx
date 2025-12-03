@@ -9,6 +9,7 @@ import {
 } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import FloatingForm from "@/components/Signup/FloatingForm";
+import Image from "next/image";
 
 export default function Signup() {
   const methods = useForm<FieldValues>({
@@ -30,7 +31,7 @@ export default function Signup() {
       !methods.formState.errors == null ||
       Object.keys(methods.formState.errors).length === 0
     ) {
-      router.push('/email')
+      router.push("/email");
     }
   };
   const handleTabSwitch = (tab: string) => {
@@ -47,10 +48,12 @@ export default function Signup() {
       <div className="lg:w-1/2 flex flex-col justify-start px-8 lg:px-8 py-8 w-full">
         {/* Logo */}
         <div className="items-center mb-10 cursor-pointer">
-          <img
+          <Image
             src="/assets/logo.svg"
             alt="Kazentic Logo"
             className="w-[9rem]"
+            width={144}
+            height={48}
           />
         </div>
 
@@ -82,10 +85,11 @@ export default function Signup() {
                           }
                         `}
               >
-                <img
+                <Image
                   src={`/assets/${activeTab === t ? `${t}B` : t}.svg`}
                   alt={`${t} icon`}
-                  className="w-5 h-5"
+                  width={20}
+                  height={20}
                 />
                 <span
                   className={`font-medium ${
@@ -140,10 +144,13 @@ export default function Signup() {
                       className="w-full flex justify-center items-center gap-2  bg-[#F8FAFC] border border-[#EBEBEB] text-[#4157FE] text-[0.875rem] leading-[1.25rem] font-medium rounded-lg px-2 py-2 mt-1 cursor-pointer "
                     >
                       <span>Claim Ownership</span>
-                      <img
-                        className=" flex justify-center w-5 h-5"
-                        src="assets/frame.png"
-                      ></img>
+                      <Image
+                        className=" flex justify-center"
+                        src="/assets/frame.png"
+                        alt="Claim Ownership"
+                        width={20}
+                        height={20}
+                      />
                     </button>
                     {/* Floating Form*/}
                     {isFormVisible && <FloatingForm onClose={toggleForm} />}
@@ -348,7 +355,12 @@ export default function Signup() {
                   </label>
                   <div className="flex flex-row items-center  gap-2 mb-3 mt-3">
                     <div className="w-12 h-12 flex justify-center items-center rounded-full bg-[#F2F9FE]">
-                      <img src="/assets/upload.svg" className="w-5 h-5" />
+                      <Image
+                        src="/assets/upload.svg"
+                        alt="icon"
+                        width={20}
+                        height={20}
+                      />
                     </div>
                     <div className="flex flex-col gap-1">
                       <p className="font-medium text-[#191F38] text-[0.75rem] leading-[1.25rem] ">
@@ -402,12 +414,12 @@ export default function Signup() {
             <span className="text-[#4157FE] cursor-pointer">
               Terms & Privacy
             </span>
-            {methods.formState.errors.terms && (
-              <p className="text-red-500">
-                {String(methods.formState.errors.terms.message)}
-              </p>
-            )}
           </label>
+          {methods.formState.errors.terms && (
+            <p className="text-red-500">
+              {String(methods.formState.errors.terms.message)}
+            </p>
+          )}
 
           {/* Submit Button */}
           <button
@@ -438,10 +450,12 @@ export default function Signup() {
         <div>
           {/* Dashboard Image Placeholder */}
           <div className="rounded-xl overflow-hidden ">
-            <img
+            <Image
               src="/assets/dashboard.svg"
               alt="Dashboard Preview"
               className="rounded-xl"
+              width={688}
+              height={946}
             />
           </div>
         </div>

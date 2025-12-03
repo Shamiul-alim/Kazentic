@@ -1,6 +1,7 @@
 import React from "react";
 import emailInboxData from "@/data/emailData.json";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 type emailInboxData = {
   id: number;
@@ -22,7 +23,7 @@ export default function Spam({ emails }: Props) {
       <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4">
         <div className="flex felx-row items-center space-x-6">
           <button className="flex justify-center items-center gap-1">
-            <img src="/assets/vector.svg" className="w-4 h-4" />
+            <Image src="/assets/vector.svg" alt="icon" width={16} height={16} />
             <ChevronDown className="w-5 h-5 text-[#697588] opacity-80" />
           </button>
           <div className="text-[1.25rem] font-semibold text-[#191F38] leading-[2.125rem] ">
@@ -55,14 +56,17 @@ export default function Spam({ emails }: Props) {
             className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] ml-[1.25rem] mr-[1.25rem] flex flex-row items-center justify-between pl-3 pr-3 cursor-pointer"
           >
             <div className="flex items-center gap-3">
-              <img src={email.icon} />
+              <Image src={email.icon} alt="icon" width={20} height={20} />
               <button className="w-5 h-5 rounded-full flex items-center justify-center">
-                <img
+                <Image
                   src={`${
                     email.isStarred
                       ? "/assets/starActive.svg"
                       : "/assets/star.svg"
                   }`}
+                  alt="icon"
+                  width={20}
+                  height={20}
                 />
               </button>
               <span className="text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">

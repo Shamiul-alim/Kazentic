@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
+import Image from "next/image";
 
 export default function Signin() {
   const {
@@ -26,10 +27,12 @@ export default function Signin() {
       <div className="lg:w-1/2 flex flex-col justify-start px-8 lg:px-8 py-8 w-full">
         {/* Logo */}
         <div className="items-center cursor-pointer">
-          <img
+          <Image
             src="/assets/logo.svg"
             alt="Kazentic Logo"
             className="w-[9rem]"
+            width={144}
+            height={48}
           />
         </div>
         <div>
@@ -130,10 +133,12 @@ export default function Signin() {
         <div>
           {/* Dashboard Image Placeholder */}
           <div className=" rounded-xl overflow-hidden ">
-            <img
+            <Image
               src="/assets/dashboard.svg"
               alt="Dashboard Preview"
               className="rounded-xl"
+              width={688}
+              height={946}
             />
           </div>
         </div>

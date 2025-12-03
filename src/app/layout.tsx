@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import { Toaster } from "react-hot-toast";
+import { Inter } from "next/font/google";
 import "./globals.css";
 export const metadata: Metadata = {
   title: "Kazentic App",
   description: "Your app description",
 };
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 export default function RootLayout({
   children,
@@ -13,13 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
-        />
-      </head>
-      <body style={{ fontFamily: "Inter" }}>
+      <body className={inter.className}>
         {children}
         <Toaster
           position="bottom-right"

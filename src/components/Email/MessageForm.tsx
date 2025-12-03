@@ -1,10 +1,8 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { ChevronDown } from "lucide-react";
-import Spam from "./Tab Content/Spam";
-import { Button } from "../ui/button";
+import Image from "next/image";
 
 export default function MessageForm({ onClose }: { onClose: () => void }) {
   const tabs = [
@@ -55,13 +53,19 @@ export default function MessageForm({ onClose }: { onClose: () => void }) {
             </div>
             <div className="flex flex-row items-center h-[2.516rem] w-full rounded-lg mt-1  border-[0.063rem] border-input bg-[#FFFFFF] px-2 py-2 space-x-6">
               <div className="flex flex-row gap-2">
-                <img
+                <Image
                   src="/assets/FloatingMessageLeftIcon.svg"
-                  className="w-4 cursor-pointer"
+                  className="cursor-pointer"
+                  alt="icon"
+                  width={16}
+                  height={16}
                 />
-                <img
+                <Image
                   src="/assets/FloatingMessageRightIcon.svg"
-                  className="w-4 cursor-pointer"
+                  className="cursor-pointer"
+                  alt="icon"
+                  width={16}
+                  height={16}
                 />
               </div>
               <div className="flex flex-row items-center">
@@ -71,12 +75,24 @@ export default function MessageForm({ onClose }: { onClose: () => void }) {
                 <ChevronDown className="text-[#191F38] w-4 cursor-pointer" />
               </div>
               <div className="flex flex-row items-center">
-                <img src="/assets/vectorM.svg" />
+                <Image
+                  src="/assets/vectorM.svg"
+                  alt="icon"
+                  width={16}
+                  height={16}
+                />
                 <ChevronDown className="text-[#191F38] w-4 cursor-pointer" />
               </div>
-              <div className="flex flex-row items-center space-x-4">
+              <div className="flex flex-row items-center gap-5">
                 {tabs.map((tab) => (
-                  <img src={`/assets/${tab}.svg`} className="" />
+                  <Image
+                    key={tab}
+                    src={`/assets/${tab}.svg`}
+                    className="cursor-pointer"
+                    alt="icon"
+                    width={14}
+                    height={14}
+                  />
                 ))}
               </div>
             </div>
@@ -95,9 +111,9 @@ export default function MessageForm({ onClose }: { onClose: () => void }) {
         <div className="h-[0.1rem] bg-[#EBEBEB]"></div>
         <div className="flex  flex-row justify-between">
           <div className="flex flex-row gap-3">
-            <img src="/assets/trash.svg" className="w-4" />
-            <img src="/assets/lock.svg" className="w-4" />
-            <img src="/assets/clock.svg" className="w-4" />
+            <Image src="/assets/trash.svg" alt="icon" width={16} height={16} />
+            <Image src="/assets/lock.svg" alt="icon" width={16} height={16} />
+            <Image src="/assets/clock.svg" alt="icon" width={16} height={16} />
           </div>
           <div className="flex flex-row gap-3 justify-center items-center">
             <span className="text-[#697588] text-[0.875rem] font-medium tracking-tight">

@@ -10,6 +10,7 @@ import Spam from "./Tab Content/Spam";
 import Trash from "./Tab Content/Trash";
 import AllMail from "./Tab Content/AllMail";
 import MessageForm from "./MessageForm";
+import Image from "next/image";
 
 export default function DashboardSection() {
   const [activeTab, setActiveTab] = useState("Inbox");
@@ -78,9 +79,12 @@ export default function DashboardSection() {
         <span className="text-[0.875rem] text-[#191F38] font-medium ml-3">
           Inbox
         </span>
-        <img
+        <Image
           src="/assets/messageQuestion.svg"
-          className=" w-5 h-5 ml-auto mr-[0.4rem]"
+          alt="icon"
+          width={20}
+          height={20}
+          className="ml-auto mr-[0.4rem]"
         />
       </div>
       <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[1.25rem] flex flex-row items-center justify-between pl-3 pr-3">
@@ -110,9 +114,11 @@ export default function DashboardSection() {
                   : "text-[#697588]"
               }`}
             >
-              <img
+              <Image
                 src={activeTab === tab.name ? tab.activeIcon : tab.icon}
-                className="w-4  h-4"
+                alt="icon"
+                width={16}
+                height={16}
               />
               {tab.name}
             </button>
@@ -123,7 +129,7 @@ export default function DashboardSection() {
             onClick={openMessageForm}
             className="bg-[#4157FE] text-[#FFFFFF] text-[0.875rem] font-medium flex flex-row justify-center items-center gap-1 py-1.5 px-2 rounded-lg hover:bg-blue-800 "
           >
-            <img src="/assets/plus.svg" className="w-3 h-3" />
+            <Image src="/assets/plus.svg" alt="icon" width={12} height={12} />
             <span>New Message</span>
           </button>
         </div>

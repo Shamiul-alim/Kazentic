@@ -1,10 +1,11 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Sidebar() {
   return (
     <div className=" w-[2.375rem]  flex flex-grow flex-col items-center ">
       {/* Sidebar Buttons */}
-      <div className="space-y-3 mt-1 flex flex-col flex-1 items-center">
+      <div className="space-y-3 mt-3 flex flex-col flex-1 items-center">
         {/* Section C */}
         <div className="flex flex-row justify-center items-center">
           <div className="w-1 h-2 bg-white rounded-r-full absolute left-0"></div>
@@ -48,17 +49,32 @@ export default function Sidebar() {
       <div className="mt-auto mb-4 space-y-3 flex flex-col justify-center items-center">
         {/*Billing*/}
         <button className="w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center text-center items-center border border-gray-300 border-opacity-60 bg-[#4157FE] cursor-pointer ">
-          <img src="/assets/billing.svg" className="w-4 h-4"></img>
+          <Image
+            src="/assets/billing.svg"
+            alt="icon"
+            width={16}
+            height={16}
+          ></Image>
         </button>
 
         {/*Bug*/}
         <button className="w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center text-center items-center border border-gray-300 border-opacity-60 bg-[#4157FE] cursor-pointer ">
-          <img src="/assets/bug.svg" className="w-4 h-4"></img>
+          <Image
+            src="/assets/bug.svg"
+            alt="icon"
+            width={16}
+            height={16}
+          ></Image>
         </button>
 
         {/*Support*/}
         <button className="w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center text-center items-center border border-gray-300 border-opacity-60 bg-[#4157FE] cursor-pointer ">
-          <img src="/assets/support.svg" className="w-4 h-4"></img>
+          <Image
+            src="/assets/support.svg"
+            alt="icon"
+            width={16}
+            height={16}
+          ></Image>
         </button>
       </div>
     </div>

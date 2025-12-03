@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
-import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
+import Image from "next/image";
 
 interface FloatingFormProps {
   onClose: () => void;
@@ -32,10 +32,13 @@ const FloatingForm: React.FC<FloatingFormProps> = ({ onClose }) => {
           &times;
         </button>
         <div className="flex flex-col justify-center items-center mt-4">
-          <img
-            className=" flex justify-center w-[3.8rem] h-[3.8rem]"
+          <Image
+            alt="icon"
+            width={60.8}
+            height={60.8}
+            className=" flex justify-center"
             src="/assets/frame.png"
-          ></img>
+          />
           <h2 className="text-[1.25rem] font-semibold text-center  text-[#191F38] leading-[2.125rem]">
             Claim Organization Ownership
           </h2>
@@ -44,7 +47,13 @@ const FloatingForm: React.FC<FloatingFormProps> = ({ onClose }) => {
           {/*Search*/}
           <div className="flex flex-row gap-4">
             <div className="flex items-center border border-[#E5E5E5] rounded-lg flex-1">
-              <img src="/assets/search.svg" className="w-9 h-6 pl-2" />
+              <Image
+                src="/assets/search.svg"
+                className=" pl-2"
+                alt="icon"
+                width={36}
+                height={36}
+              />
               <input
                 type="text"
                 placeholder="Search your workspaces through email"
@@ -160,10 +169,13 @@ const FloatingForm: React.FC<FloatingFormProps> = ({ onClose }) => {
                 <option value="action2">Action 2</option>
                 <option value="action3">Action 3</option>
               </select>
-              <img
+              <Image
                 src="/assets/more.svg"
-                className="w-6 h-6 absolute right-2 top-2 "
-              ></img>
+                className=" absolute right-2 top-2 "
+                alt="icon"
+                width={24}
+                height={24}
+              ></Image>
             </div>
           </div>
 
@@ -172,7 +184,12 @@ const FloatingForm: React.FC<FloatingFormProps> = ({ onClose }) => {
             <Label>Upload a picture</Label>
             <div className="flex flex-row items-center  gap-2 mb-3 mt-3">
               <div className="w-12 h-12 flex justify-center items-center rounded-full bg-[#F2F9FE]">
-                <img src="/assets/upload.svg" className="w-5 h-5" />
+                <Image
+                  alt="icon"
+                  width={20}
+                  height={20}
+                  src="/assets/upload.svg"
+                />
               </div>
               <div className="flex flex-col gap-1">
                 <p className="font-medium text-[#191F38] text-[0.75rem] leading-[1.25rem] ">

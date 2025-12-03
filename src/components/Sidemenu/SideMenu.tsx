@@ -3,6 +3,7 @@
 import * as React from "react";
 import { ChevronDown } from "lucide-react";
 import sectionsData from "@/data/sectionsData.json";
+import Image from "next/image";
 
 type SectionItem = {
   name: string;
@@ -46,7 +47,7 @@ export default function SideMenu({ setActiveSection, activeSection }: Props) {
           onClick={() => handleSectionClick(section.name)}
           className={sectionClass}
         >
-          <img src={section.icon} />
+          <Image src={section.icon} alt="icon" width={18} height={18} />
           <span>{section.name}</span>
           <div className="flex w-auto pr-2">
             {section.hasDropdown && (
@@ -78,7 +79,13 @@ export default function SideMenu({ setActiveSection, activeSection }: Props) {
           </button>
           <span className="font-semibold text-[0.875rem]">Carbon Stream</span>
         </div>
-        <img src="/assets/sidemenu.svg" className="flex ml-auto" />
+        <Image
+          alt="icon"
+          src="/assets/sidemenu.svg"
+          className="flex ml-auto"
+          width={16}
+          height={16}
+        />
       </div>
 
       {/* Sidebar Menu */}
@@ -88,7 +95,13 @@ export default function SideMenu({ setActiveSection, activeSection }: Props) {
 
       {/* Upgrade Space */}
       <div className="mt-auto">
-        <img src="/assets/add.svg" className="w-full mb-10" />
+        <Image
+          alt="upgrade"
+          src="/assets/add.svg"
+          width={178}
+          height={129}
+          className="w-full mb-10"
+        />
       </div>
     </div>
   );
