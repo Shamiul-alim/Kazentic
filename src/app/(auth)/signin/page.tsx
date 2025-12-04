@@ -28,7 +28,7 @@ export default function Signin() {
         {/* Logo */}
         <div className="items-center cursor-pointer">
           <Image
-            src="/assets/logo.svg"
+            src="/assets/Homelogo.svg"
             alt="Kazentic Logo"
             className="w-[9rem]"
             width={144}

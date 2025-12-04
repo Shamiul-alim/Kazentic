@@ -49,7 +49,7 @@ export default function Signup() {
         {/* Logo */}
         <div className="items-center mb-10 cursor-pointer">
           <Image
-            src="/assets/logo.svg"
+            src="/assets/Homelogo.svg"
             alt="Kazentic Logo"
             className="w-[9rem]"
             width={144}

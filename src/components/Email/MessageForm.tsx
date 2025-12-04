@@ -8,7 +8,7 @@ export default function MessageForm({ onClose }: { onClose: () => void }) {
   const tabs = [
     "b",
     "Italic",
-    "Underline",
+    "underline",
     "icon1",
     "icon2",
     "icon3",
@@ -61,7 +61,7 @@ export default function MessageForm({ onClose }: { onClose: () => void }) {
                   height={12}
                 />
                 <Image
-                  src="/assets/FloatingMessageRightIcon.svg"
+                  src="/assets/FloatingMessageRIghtIcon.svg"
                   className="cursor-pointer sm:w-4 sm:h-4 "
                   alt="icon"
                   width={13}
@@ -76,7 +76,7 @@ export default function MessageForm({ onClose }: { onClose: () => void }) {
               </div>
               <div className="flex flex-row items-center">
                 <Image
-                  src="/assets/vectorM.svg"
+                  src="/assets/VectorM.svg"
                   className="cursor-pointer sm:w-4 sm:h-4 "
                   alt="icon"
                   width={13}
