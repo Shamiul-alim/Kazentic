@@ -30,7 +30,7 @@ export default function AllMail({ emails }: Props) {
         <div className="flex felx-row items-center space-x-1 sm:space-x-2 md:space-x-3 lg:space-x-6 justify-between lg:justify-normal w-full lg:w-auto">
           <button className="flex justify-center items-center gap-2.5">
             <Image
-              src="/assets/vector.svg"
+              src="/assets/Vector.svg"
               alt="icon"
               width={16}
               height={16}
