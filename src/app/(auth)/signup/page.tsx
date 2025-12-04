@@ -92,7 +92,7 @@ export default function Signup() {
                   height={20}
                 />
                 <span
-                  className={`font-medium ${
+                  className={`font-medium text-[0.7rem] sm:text[0.9]   ${
                     activeTab === t ? "text-[#4157FE]" : "text-[#191F38]"
                   }`}
                 >

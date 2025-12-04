@@ -51,47 +51,48 @@ export default function MessageForm({ onClose }: { onClose: () => void }) {
               <Label>Subject</Label>
               <Input type="text" />
             </div>
-            <div className="flex flex-row items-center h-[2.516rem] w-full rounded-lg mt-1  border-[0.063rem] border-input bg-[#FFFFFF] px-2 py-2 space-x-6">
-              <div className="flex flex-row gap-2">
+            <div className="flex flex-row items-center h-[2.516rem] w-full rounded-lg mt-1  border-[0.063rem] border-input bg-[#FFFFFF] px-2 py-2 space-x-2 sm:space-x-4">
+              <div className="flex flex-row gap-1 sm:gap-2 justify-center sm:justify-start">
                 <Image
                   src="/assets/FloatingMessageLeftIcon.svg"
-                  className="cursor-pointer"
+                  className="cursor-pointer sm:w-4 sm:h-4 "
                   alt="icon"
-                  width={16}
-                  height={16}
+                  width={13}
+                  height={12}
                 />
                 <Image
                   src="/assets/FloatingMessageRightIcon.svg"
-                  className="cursor-pointer"
+                  className="cursor-pointer sm:w-4 sm:h-4 "
                   alt="icon"
-                  width={16}
-                  height={16}
+                  width={13}
+                  height={12}
                 />
               </div>
-              <div className="flex flex-row items-center">
+              <div className="flex flex-row items-center justify-center sm:justify-start">
                 <span className="font-normal cursor-pointer text-[0.875rem] text-[#191F38]">
                   Arial
                 </span>
-                <ChevronDown className="text-[#191F38] w-4 cursor-pointer" />
+                <ChevronDown className="text-[#191F38] w-4 shrink-0 cursor-pointer" />
               </div>
               <div className="flex flex-row items-center">
                 <Image
                   src="/assets/vectorM.svg"
+                  className="cursor-pointer sm:w-4 sm:h-4 "
                   alt="icon"
-                  width={16}
-                  height={16}
+                  width={13}
+                  height={12}
                 />
-                <ChevronDown className="text-[#191F38] w-4 cursor-pointer" />
+                <ChevronDown className="text-[#191F38] w-4 shrink-0 cursor-pointer" />
               </div>
-              <div className="flex flex-row items-center gap-5">
+              <div className="flex flex-row items-center gap-2 sm:gap-5">
                 {tabs.map((tab) => (
                   <Image
                     key={tab}
                     src={`/assets/${tab}.svg`}
-                    className="cursor-pointer"
+                    className="cursor-pointer sm:w-4 sm:h-4 "
                     alt="icon"
-                    width={14}
-                    height={14}
+                    width={13}
+                    height={12}
                   />
                 ))}
               </div>
