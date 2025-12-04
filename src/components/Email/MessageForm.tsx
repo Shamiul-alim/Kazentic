@@ -18,7 +18,7 @@ export default function MessageForm({ onClose }: { onClose: () => void }) {
     "icon7",
   ];
   return (
-    <div className="fixed top-0 right-0 w-[34.375rem] h-full bg-[#FFFFFF] z-50 shadow-lg rounded-l-lg flex flex-col justify-between">
+    <div className="fixed top-0 right-0 w-full sm:w-[34.375rem] h-full bg-[#FFFFFF] z-50 shadow-lg rounded-l-lg flex flex-col justify-between">
       <div>
         <div className="flex justify-between items-center h-[3.188rem] p-4 border-b border-[rgb(229,233,235)]">
           <h2 className="text-[1.25rem] font-semibold tracking-tight text-[#191F38]">

@@ -24,7 +24,7 @@ export default function Inbox({ emails }: Props) {
   };
 
   return (
-    <div className="w-full h-full bg-[#FFFFFF] flex flex-col">
+    <div className="w-full bg-[#FFFFFF] flex flex-col">
       {/* Inbox Title Section */}
       <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-3">
         <div className="flex felx-row items-center space-x-1 sm:space-x-2 md:space-x-3 lg:space-x-6 justify-between lg:justify-normal w-full lg:w-auto">

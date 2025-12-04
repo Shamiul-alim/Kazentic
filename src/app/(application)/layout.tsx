@@ -14,7 +14,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <Sidebar />
           </div>
 
-          <div className="flex-1 overflow-auto bg-[#111953]">{children}</div>
+          <div className="flex-1 overflow-auto  bg-[#111953]">{children}</div>
         </div>
       </>
     </div>

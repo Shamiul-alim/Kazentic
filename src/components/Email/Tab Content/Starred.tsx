@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import emailInboxData from "@/data/emailData.json";
 import { ChevronDown } from "lucide-react";
@@ -17,23 +18,34 @@ type Props = {
 
 export default function Starred({ emails }: Props) {
   const tabs = ["All", "Read", "Unread", "Has Attachments"];
+  const limitChars = (text: string, limit: number) => {
+    if (text.length <= limit) return text;
+    return text.substring(0, limit) + " ...";
+  };
+
   return (
-    <div className="w-full h-full bg-[#FFFFFF]">
+    <div className="w-full bg-[#FFFFFF] flex flex-col">
       {/* Inbox Title Section */}
-      <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4">
-        <div className="flex felx-row items-center space-x-6">
-          <button className="flex justify-center items-center gap-1">
-            <Image src="/assets/vector.svg" alt="icon" width={16} height={16} />
-            <ChevronDown className="w-5 h-5 text-[#697588] opacity-80" />
+      <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-3">
+        <div className="flex felx-row items-center space-x-1 sm:space-x-2 md:space-x-3 lg:space-x-6 justify-between lg:justify-normal w-full lg:w-auto">
+          <button className="flex justify-center items-center gap-2.5">
+            <Image
+              src="/assets/vector.svg"
+              alt="icon"
+              width={16}
+              height={16}
+              className="w-4 h-4"
+            />
+            <ChevronDown className="w-5 h-5 text-[#697588] opacity-80 flex shrink-0" />
           </button>
-          <div className="text-[1.25rem] font-semibold text-[#191F38] leading-[2.125rem] ">
+          <div className="text-[1rem] sm:text-[1.25rem] font-semibold text-[#191F38] leading-[2.125rem] ">
             Starred
           </div>
           <div className="text-[#697588] cursor-pointer">
             &#x2022;&#x2022;&#x2022;
           </div>
         </div>
-        <div className="flex justify-center items-center gap-8">
+        <div className="hidden lg:block justify-center items-center gap-8">
           <div className="space-x-3 text-[0.875rem] font-semibold tracking-tighter text-[#697588]">
             {tabs.map((tab) => (
               <button key={tab} className="p-2 rounded-lg">
@@ -41,23 +53,30 @@ export default function Starred({ emails }: Props) {
               </button>
             ))}
           </div>
-          <div className="text-[#697588] space-x-4 font-medium text-[0.75rem] pr-3">
-            <span className="font-semibold">&#10229;</span>
-            <span>1-5 of 10</span>
-            <span className="font-semibold">&#10230;</span>
-          </div>
+        </div>
+        <div className="text-[#697588] space-x-4 font-medium text-[0.75rem] pr-3 hidden lg:block">
+          <span className="font-semibold">&#10229;</span>
+          <span>1-5 of 10</span>
+          <span className="font-semibold">&#10230;</span>
         </div>
       </div>
+
       {/* Emails List */}
       <div className="space-y-3">
         {emails.map((email) => (
           <div
             key={email.id}
-            className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] ml-[1.25rem] mr-[1.25rem] flex flex-row items-center justify-between pl-3 pr-3 cursor-pointer"
+            className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer"
           >
-            <div className="flex items-center gap-3">
-              <Image src={email.icon} alt="icon" width={20} height={20} />
-              <button className="w-5 h-5 rounded-full flex items-center justify-center">
+            <div className="flex items-center gap-2 md:gap-3 w-full md:w-auto ">
+              <Image
+                src={email.icon}
+                alt="icon"
+                width={20}
+                height={20}
+                className="w-4 h-4 md:w-5 md:h-5"
+              />
+              <div className="w-4 h-4 min-w-[20px] rounded-full flex items-center justify-center flex-shrink-0">
                 <Image
                   src={`${
                     email.isStarred
@@ -67,20 +86,26 @@ export default function Starred({ emails }: Props) {
                   alt="icon"
                   width={20}
                   height={20}
+                  className="w-4 h-4"
                 />
-              </button>
-              <span className="text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">
-                {email.sender}
-              </span>
+              </div>
+              <div className="flex  flex-col text-center  justify-center items-center w-full md:w-auto">
+                <span className="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">
+                  {email.sender}
+                </span>
+                <span className="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38] sm:hidden">
+                  {limitChars(email.subject, 10)}🎉
+                </span>
+              </div>
             </div>
 
-            <div className="flex flex-col items-center space-y-1">
+            <div className="hidden sm:block  flex-col items-center space-y-1">
               <span className="text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38]">
-                {email.subject}🎉
+                {limitChars(email.subject, 18)}🎉
               </span>
             </div>
 
-            <div>
+            <div className="hidden sm:block">
               <span className="text-[0.875rem] tracking-tighter text-[#697588] font-medium ">
                 {email.timestamp}
               </span>

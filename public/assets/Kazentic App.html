@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://localhost:3000/email -->
+<html lang="en" suppresshydrationwarning="true" data-qb-installed="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="./Kazentic App_files/layout.css" data-precedence="next_static/css/app/layout.css"><link rel="preload" as="script" fetchpriority="low" href="./Kazentic App_files/webpack.js.download"><script src="./Kazentic App_files/main-app.js.download" async=""></script><script src="./Kazentic App_files/app-pages-internals.js.download" async=""></script><script src="./Kazentic App_files/page.js.download" async=""></script><script src="./Kazentic App_files/layout.js.download" async=""></script><script src="./Kazentic App_files/layout(1).js.download" async=""></script><title>Kazentic App</title><meta name="description" content="Your app description"><script src="./Kazentic App_files/polyfills.js.download" nomodule=""></script><style type="text/css">.lf-progress {
+  -webkit-appearance: none;
+  -moz-apperance: none;
+  width: 100%;
+  /* margin: 0 10px; */
+  height: 4px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.lf-progress:focus {
+  outline: none;
+  border: none;
+}
+.lf-progress::-moz-range-track {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+.lf-progress::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  height: 13px;
+  width: 13px;
+  border: 0;
+  border-radius: 50%;
+  background: #0fccce;
+  cursor: pointer;
+}
+.lf-progress::-moz-range-thumb {
+  -moz-appearance: none !important;
+  height: 13px;
+  width: 13px;
+  border: 0;
+  border-radius: 50%;
+  background: #0fccce;
+  cursor: pointer;
+}
+.lf-progress::-ms-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.lf-progress::-ms-fill-lower {
+  background: #ccc;
+  border-radius: 3px;
+}
+.lf-progress::-ms-fill-upper {
+  background: #ccc;
+  border-radius: 3px;
+}
+.lf-progress::-ms-thumb {
+  border: 0;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #0fccce;
+  cursor: pointer;
+}
+.lf-progress:focus::-ms-fill-lower {
+  background: #ccc;
+}
+.lf-progress:focus::-ms-fill-upper {
+  background: #ccc;
+}
+.lf-player-container :focus {
+  outline: 0;
+}
+.lf-popover {
+  position: relative;
+}
+
+.lf-popover-content {
+  display: inline-block;
+  position: absolute;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -10px);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  transition: all 0.3s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+
+.lf-popover-content.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0px);
+}
+
+.lf-player-btn-container {
+  display: flex;
+  align-items: center;
+}
+.lf-player-btn {
+  cursor: pointer;
+  fill: #999;
+  width: 14px;
+}
+
+.lf-player-btn.active {
+  fill: #555;
+}
+
+.lf-popover {
+  position: relative;
+}
+
+.lf-popover-content {
+  display: inline-block;
+  position: absolute;
+  background-color: #ffffff;
+  opacity: 1;
+
+  transform: translate(0, -10px);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  transition: all 0.3s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+  padding: 10px;
+}
+
+.lf-popover-content.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0px);
+}
+
+.lf-arrow {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  bottom: -9px;
+  border-style: solid;
+  border-width: 10px 10px 0px 10px;
+}
+
+.lf-left-align,
+.lf-left-align .lfarrow {
+  left: 0;
+  right: unset;
+}
+
+.lf-right-align,
+.lf-right-align .lf-arrow {
+  right: 0;
+  left: unset;
+}
+
+.lf-text-input {
+  border: 1px #ccc solid;
+  border-radius: 5px;
+  padding: 3px;
+  width: 60px;
+  margin: 0;
+}
+
+.lf-color-picker {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 90px;
+}
+
+.lf-color-selectors {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lf-color-component {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.lf-color-component strong {
+  width: 40px;
+}
+
+.lf-color-component input[type='range'] {
+  margin: 0 0 0 10px;
+}
+
+.lf-color-component input[type='number'] {
+  width: 50px;
+  margin: 0 0 0 10px;
+}
+
+.lf-color-preview {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 5px;
+}
+
+.lf-preview {
+  height: 60px;
+  width: 60px;
+}
+
+.lf-popover-snapshot {
+  width: 150px;
+}
+.lf-popover-snapshot h5 {
+  margin: 5px 0 10px 0;
+  font-size: 0.75rem;
+}
+.lf-popover-snapshot a {
+  display: block;
+  text-decoration: none;
+}
+.lf-popover-snapshot a:before {
+  content: '⥼';
+  margin-right: 5px;
+}
+.lf-popover-snapshot .lf-note {
+  display: block;
+  margin-top: 10px;
+  color: #999;
+}
+.lf-player-controls > div {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.lf-player-controls > div:first-child {
+  margin-left: 0px;
+}
+.lf-player-controls > div:last-child {
+  margin-right: 0px;
+}
+</style><style id="_goober"> @keyframes go2264125279{from{transform:scale(0) rotate(45deg);opacity:0;}to{transform:scale(1) rotate(45deg);opacity:1;}}@keyframes go3020080000{from{transform:scale(0);opacity:0;}to{transform:scale(1);opacity:1;}}@keyframes go463499852{from{transform:scale(0) rotate(90deg);opacity:0;}to{transform:scale(1) rotate(90deg);opacity:1;}}@keyframes go1268368563{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}@keyframes go1310225428{from{transform:scale(0) rotate(45deg);opacity:0;}to{transform:scale(1) rotate(45deg);opacity:1;}}@keyframes go651618207{0%{height:0;width:0;opacity:0;}40%{height:0;width:6px;opacity:1;}100%{opacity:1;height:10px;}}@keyframes go901347462{from{transform:scale(0.6);opacity:0.4;}to{transform:scale(1);opacity:1;}}.go4109123758{z-index:9999;}.go4109123758 > *{pointer-events:auto;}</style><style type="text/css">.lf-progress {
+  -webkit-appearance: none;
+  -moz-apperance: none;
+  width: 100%;
+  /* margin: 0 10px; */
+  height: 4px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.lf-progress:focus {
+  outline: none;
+  border: none;
+}
+.lf-progress::-moz-range-track {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+.lf-progress::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  height: 13px;
+  width: 13px;
+  border: 0;
+  border-radius: 50%;
+  background: #0fccce;
+  cursor: pointer;
+}
+.lf-progress::-moz-range-thumb {
+  -moz-appearance: none !important;
+  height: 13px;
+  width: 13px;
+  border: 0;
+  border-radius: 50%;
+  background: #0fccce;
+  cursor: pointer;
+}
+.lf-progress::-ms-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.lf-progress::-ms-fill-lower {
+  background: #ccc;
+  border-radius: 3px;
+}
+.lf-progress::-ms-fill-upper {
+  background: #ccc;
+  border-radius: 3px;
+}
+.lf-progress::-ms-thumb {
+  border: 0;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background: #0fccce;
+  cursor: pointer;
+}
+.lf-progress:focus::-ms-fill-lower {
+  background: #ccc;
+}
+.lf-progress:focus::-ms-fill-upper {
+  background: #ccc;
+}
+.lf-player-container :focus {
+  outline: 0;
+}
+.lf-popover {
+  position: relative;
+}
+
+.lf-popover-content {
+  display: inline-block;
+  position: absolute;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -10px);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  transition: all 0.3s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+}
+
+.lf-popover-content.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0px);
+}
+
+.lf-player-btn-container {
+  display: flex;
+  align-items: center;
+}
+.lf-player-btn {
+  cursor: pointer;
+  fill: #999;
+  width: 14px;
+}
+
+.lf-player-btn.active {
+  fill: #555;
+}
+
+.lf-popover {
+  position: relative;
+}
+
+.lf-popover-content {
+  display: inline-block;
+  position: absolute;
+  background-color: #ffffff;
+  opacity: 1;
+
+  transform: translate(0, -10px);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  transition: all 0.3s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+  padding: 10px;
+}
+
+.lf-popover-content.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0px);
+}
+
+.lf-arrow {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  bottom: -9px;
+  border-style: solid;
+  border-width: 10px 10px 0px 10px;
+}
+
+.lf-left-align,
+.lf-left-align .lfarrow {
+  left: 0;
+  right: unset;
+}
+
+.lf-right-align,
+.lf-right-align .lf-arrow {
+  right: 0;
+  left: unset;
+}
+
+.lf-text-input {
+  border: 1px #ccc solid;
+  border-radius: 5px;
+  padding: 3px;
+  width: 60px;
+  margin: 0;
+}
+
+.lf-color-picker {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 90px;
+}
+
+.lf-color-selectors {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lf-color-component {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.lf-color-component strong {
+  width: 40px;
+}
+
+.lf-color-component input[type='range'] {
+  margin: 0 0 0 10px;
+}
+
+.lf-color-component input[type='number'] {
+  width: 50px;
+  margin: 0 0 0 10px;
+}
+
+.lf-color-preview {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 5px;
+}
+
+.lf-preview {
+  height: 60px;
+  width: 60px;
+}
+
+.lf-popover-snapshot {
+  width: 150px;
+}
+.lf-popover-snapshot h5 {
+  margin: 5px 0 10px 0;
+  font-size: 0.75rem;
+}
+.lf-popover-snapshot a {
+  display: block;
+  text-decoration: none;
+}
+.lf-popover-snapshot a:before {
+  content: '⥼';
+  margin-right: 5px;
+}
+.lf-popover-snapshot .lf-note {
+  display: block;
+  margin-top: 10px;
+  color: #999;
+}
+.lf-player-controls > div {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.lf-player-controls > div:first-child {
+  margin-left: 0px;
+}
+.lf-player-controls > div:last-child {
+  margin-right: 0px;
+}
+</style><link rel="preload" as="style" href="./Kazentic App_files/layout.css"></head><body class="__className_d0be19"><div class="flex flex-col h-screen"><div class="w-full bg-gradient-to-r from-[#111953] via-[#111953] to-[#4157FE] text-[#FFFFFF]"><div class="flex justify-between h-[2.375rem]  items-center"><div class="flex"><img alt="icon" loading="lazy" width="50" height="50" decoding="async" data-nimg="1" class="flex justify-start" style="color:transparent" src="./Kazentic App_files/K.svg"></div><div class="flex justify-center items-center h-7 bg-transparent border border-gray-500 rounded-lg w-[20%] max-w-xl pl-4 font-medium ml-16"><img alt="Search Icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" style="color:transparent" src="./Kazentic App_files/topbarSearch.svg"><input type="text" placeholder="Search ..." class="w-full h- bg-transparent text-[#FFFFFF] placeholder-[#FFFFFF] focus:outline-none ml-2"><div class="ml-auto h-7  pr-1 border-l-2 border-gray-500 pl-1 flex justify-center items-center"><img alt="icon" loading="lazy" width="24" height="24" decoding="async" data-nimg="1" style="color:transparent" src="./Kazentic App_files/topbarDeco.svg"></div></div><div class="flex items-center space-x-2 pr-2"><button class="text-white"><img alt="Notification" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" style="color:transparent" src="./Kazentic App_files/notification.svg"></button><button class="text-white"><img alt="Menu" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" style="color:transparent" src="./Kazentic App_files/menu.svg"></button><div class="w-[1px] h-7 bg-gray-300 bg-opacity-30"> </div><div class="flex items-center space-x-2 "><div class="w-8 h-8 rounded-full"><img alt="Profile" loading="lazy" width="32" height="32" decoding="async" data-nimg="1" class=" rounded-full" style="color:transparent" src="./Kazentic App_files/profile.svg"></div><div class=" hidden lg:flex lg:flex-col leading-3 pt-1 text-[#FFFFFF]"><div class="font-bold text-[0.813rem]">Shihab</div><div class="text-[0.75rem] text-opacity-70 ">shihab@kazentic.com</div></div></div><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" style="color:transparent" src="./Kazentic App_files/moreB.svg"></div></div></div><div class="flex flex-grow"><div class="w-[2.375rem] bg-[#111953] text-[#FFFFFF] flex flex-col items-center z-6 pb-10"><div class=" w-[2.375rem]  flex flex-grow flex-col items-center "><div class="space-y-3 mt-3 flex flex-col flex-1 items-center"><div class="flex flex-row justify-center items-center"><div class="w-1 h-2 bg-white rounded-r-full absolute left-0"></div><button class="w-[1.5rem] h-[1.5rem] bg-gradient-to-b from-[#FF9F00] to-[#FDBF00] rounded-lg flex justify-center text-center "><span class="text-[#FFFFFF] text-[1rem] font-medium">C</span></button></div><button class="w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center  items-center pb-1  mt-4 hover:bg-slate-600 hover:border hover:border-gray-400 hover:bg-opacity-40 "><span class="text-[#3f55f9] text-[1.9rem]">+</span></button><div class="w-6 h-[0.1rem] bg-gray-600"></div><button class="w-[1.5rem] h-[1.5rem] bg-gradient-to-b from-[#FF4B00] to-[#FF9F00] rounded-lg flex justify-center text-center"><span class="text-[#FFFFFF] text-[1rem] font-medium">D</span></button><button class="w-[1.5rem] h-[1.5rem] bg-gradient-to-b from-[#059669] to-[#15BD6D] rounded-lg flex justify-center text-center"><span class="text-[#FFFFFF] text-[1rem] font-medium">L</span></button><button class="w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center  items-center pb-1  mt-4 hover:bg-slate-600 hover:border hover:border-gray-400 hover:bg-opacity-40  "><span class="text-[#3f55f9] text-[1.9rem]">+</span></button><div class="w-6 h-[0.1rem] bg-gray-600"></div><button class="w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center  items-center pb-1  mt-4 hover:bg-slate-600 hover:border hover:border-gray-400 hover:bg-opacity-40 "><span class="text-[#3f55f9] text-[1.9rem]">+</span></button></div><div class="mt-auto mb-4 space-y-3 flex flex-col justify-center items-center"><button class="w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center text-center items-center border border-gray-300 border-opacity-60 bg-[#4157FE] cursor-pointer "><img alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" style="color:transparent" src="./Kazentic App_files/billing.svg"></button><button class="w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center text-center items-center border border-gray-300 border-opacity-60 bg-[#4157FE] cursor-pointer "><img alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" style="color:transparent" src="./Kazentic App_files/bug.svg"></button><button class="w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center text-center items-center border border-gray-300 border-opacity-60 bg-[#4157FE] cursor-pointer "><img alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" style="color:transparent" src="./Kazentic App_files/support.svg"></button></div></div></div><div class="flex-1 overflow-auto bg-[#111953]"><div class="flex"><div class="w-[12.5rem] bg-[#FFFFFF] text-[#191F38] border-r border-[#EBEBEB] flex flex-grow flex-col rounded-tl-md md:relative fixed top-9.5 left-9.5 z-50 "><div class="flex items-center mb-2 border-b border-[#EBEBEB] p-3 h-[2.188rem] rounded-tl-md"><div class="flex items-center gap-2"><button class="w-[1.5rem] h-[1.5rem] bg-gradient-to-b from-[#FF9F00] to-[#FDBF00] rounded-lg flex justify-center text-center "><span class="text-[#FFFFFF] text-[1rem] font-medium">C</span></button><span class="font-semibold text-[0.875rem]">Carbon Stream</span></div><img alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" class="flex cursor-pointer ml-auto" src="./Kazentic App_files/sidemenu.svg" style="color: transparent;"></div><div class="space-y-1 pl-2 pr-2 mb-10"><div><button class="flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  hover:bg-gray-100 "><img alt="icon" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="./Kazentic App_files/dashboardIcon.svg" style="color: transparent;"><span>Dashboard</span><div class="flex w-auto pr-5"></div></button></div><div><button class="flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  hover:bg-gray-100 "><img alt="icon" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="./Kazentic App_files/manageIcon.svg" style="color: transparent;"><span>Manage</span><div class="flex w-auto pr-5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down transition-transform  duration-300  ml-12" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></div></button></div><div><button class="flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  hover:bg-gray-100 "><img alt="icon" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="./Kazentic App_files/timetrackerIcon.svg" style="color: transparent;"><span>Time Tracker</span><div class="flex w-auto pr-5"></div></button></div><div><button class="flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  hover:bg-gray-100 "><img alt="icon" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="./Kazentic App_files/taskIcon.svg" style="color: transparent;"><span>Tasks</span><div class="flex w-auto pr-5"></div></button></div><div><button class="flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  hover:bg-gray-100 "><img alt="icon" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="./Kazentic App_files/reportIcon.svg" style="color: transparent;"><span>Reports</span><div class="flex w-auto pr-5"></div></button></div><div><button class="flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  bg-[#D6E9FF] text-[#4157FE] hover:bg-[#D6E9FF]  "><img alt="icon" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="./Kazentic App_files/emailIcon.svg" style="color: transparent;"><span>Email</span><div class="flex w-auto pr-5"></div></button></div><div><button class="flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  hover:bg-gray-100 "><img alt="icon" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="./Kazentic App_files/storageIcon.svg" style="color: transparent;"><span>Storage</span><div class="flex w-auto pr-5"></div></button></div><div><button class="flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  hover:bg-gray-100 "><img alt="icon" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="./Kazentic App_files/calendarIcon.svg" style="color: transparent;"><span>Calendar</span><div class="flex w-auto pr-5"></div></button></div><div><button class="flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  hover:bg-gray-100 "><img alt="icon" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="./Kazentic App_files/notesIcon.svg" style="color: transparent;"><span>Notes</span><div class="flex w-auto pr-5"></div></button></div><div><button class="flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  hover:bg-gray-100 "><img alt="icon" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="./Kazentic App_files/hrmIcon.svg" style="color: transparent;"><span>HRM</span><div class="flex w-auto pr-5"></div></button></div><div><button class="flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  hover:bg-gray-100 "><img alt="icon" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="./Kazentic App_files/crmIcon.svg" style="color: transparent;"><span>CRM</span><div class="flex w-auto pr-5"></div></button></div><div><button class="flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  hover:bg-gray-100 "><img alt="icon" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="./Kazentic App_files/chatIcon.svg" style="color: transparent;"><span>Chat</span><div class="flex w-auto pr-5"></div></button></div><div><button class="flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  hover:bg-gray-100 "><img alt="icon" loading="lazy" width="18" height="18" decoding="async" data-nimg="1" src="./Kazentic App_files/formsIcon.svg" style="color: transparent;"><span>Forms</span><div class="flex w-auto pr-5"></div></button></div></div><div class="mt-auto"><img alt="upgrade" loading="lazy" width="178" height="129" decoding="async" data-nimg="1" class="w-full mb-10" src="./Kazentic App_files/add.svg" style="color: transparent;"></div></div><div class="w-full h-auto"><div class="w-full h-full bg-[#FFFFFF] flex flex-col "><div class="flex  items-center  mb-2  border-b border-[#EBEBEB] p-2 sm:pl-3 md:pl-5 h-[2.188rem] rounded-tl-lg "><span class="text-[0.7rem] sm:texxt-[0.875rem] text-[#8F97A2] font-medium">Menu</span><span class="text-[0.7rem] sm:text-[0.875rem] text-[#8F97A2] font-medium ml-3">•</span><span class="text-[0.875rem] text-[#191F38] font-medium ml-3 ">Inbox</span><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="ml-auto mr-[0.4rem] shrink-0" src="./Kazentic App_files/messageQuestion.svg" style="color: transparent;"></div><div class=" rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] sm:m-[0.9rem] md:m-[1.25rem] flex flex-row items-center justify-between pl-3 pr-3"><div class="flex flex-row h-[2.8rem] md:h-[3.25rem]  py-[0.688rem]  border-r border-[#EBEBEB] space-x-2  "><div class=" rounded-full bg-[#4157FE] w-[1.5rem] h-[1.5rem] md:h-[1.875rem] md:w-[1.875rem] flex justify-center items-center"><span class="text-[0.8rem  font-normal text-[#FFFFFF]">A</span></div><div class="flex flex-col justify-center space-y-1.5 pr-2"><span class="text-[#191F38]  text-xs md:text-sm font-medium leading-[0.635rem] tracking-tighter">Alif Hassan</span><span class="text-[#00000080] text-opacity-50 font-medium text-[0.7rem] md:text-[0.75rem] leading-[0.625rem] tracking-tighter">alif@deepchainlabs.com</span></div></div><div class=""><button class="bg-[#4157FE] text-[#FFFFFF] text-[0.7rem]  font-medium justify-center items-center gap-1 py-1.5 px-3 rounded-lg hover:bg-blue-800 ">New</button></div></div><div class="flex flex-row"><div class="flex flex-col ml-2 sm:ml-3 md:ml-5  border border-[#EBEBEB] h-fit rounded-lg"><button class="text-center text-[0.6rem] md:text-[0.8rem]  px-1 md:px-2 py-3 flex flex-col justify-center items-center gap-1 tracking-tighter font-semibold text-[#4157FE] "><img alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" src="./Kazentic App_files/emailInboxActive.svg" style="color: transparent;">Inbox</button><button class="text-center text-[0.6rem] md:text-[0.8rem]  px-1 md:px-2 py-3 flex flex-col justify-center items-center gap-1 tracking-tighter font-semibold text-[#697588]"><img alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" src="./Kazentic App_files/emailSent.svg" style="color: transparent;">Sent</button><button class="text-center text-[0.6rem] md:text-[0.8rem]  px-1 md:px-2 py-3 flex flex-col justify-center items-center gap-1 tracking-tighter font-semibold text-[#697588]"><img alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" src="./Kazentic App_files/emailAll.svg" style="color: transparent;">All Mail</button><button class="text-center text-[0.6rem] md:text-[0.8rem]  px-1 md:px-2 py-3 flex flex-col justify-center items-center gap-1 tracking-tighter font-semibold text-[#697588]"><img alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" src="./Kazentic App_files/emailDraft.svg" style="color: transparent;">Draft</button><button class="text-center text-[0.6rem] md:text-[0.8rem]  px-1 md:px-2 py-3 flex flex-col justify-center items-center gap-1 tracking-tighter font-semibold text-[#697588]"><img alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" src="./Kazentic App_files/emailStarred.svg" style="color: transparent;">Starred</button><button class="text-center text-[0.6rem] md:text-[0.8rem]  px-1 md:px-2 py-3 flex flex-col justify-center items-center gap-1 tracking-tighter font-semibold text-[#697588]"><img alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" src="./Kazentic App_files/emailSpam.svg" style="color: transparent;">Spam</button><button class="text-center text-[0.6rem] md:text-[0.8rem]  px-1 md:px-2 py-3 flex flex-col justify-center items-center gap-1 tracking-tighter font-semibold text-[#697588]"><img alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" src="./Kazentic App_files/emailTrash.svg" style="color: transparent;">Trash</button></div><div class="transition-all duration-500 ease-out w-full h-screen overflow-x-auto  opacity-100 scale-100"><div class="w-full bg-[#FFFFFF] flex flex-col"><div class="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-3"><div class="flex felx-row items-center space-x-1 sm:space-x-2 md:space-x-3 lg:space-x-6 justify-between lg:justify-normal w-full lg:w-auto"><button class="flex justify-center items-center gap-2.5"><img alt="icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" class="w-4 h-4" src="./Kazentic App_files/vector.svg" style="color: transparent;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-5 h-5 text-[#697588] opacity-80 flex shrink-0" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><div class="text-[1rem] sm:text-[1.25rem] font-semibold text-[#191F38] leading-[2.125rem] ">Inbox</div><div class="text-[#697588] cursor-pointer">•••</div></div><div class="hidden lg:block justify-center items-center gap-8"><div class="space-x-3 text-[0.875rem] font-semibold tracking-tighter text-[#697588]"><button class="p-2 rounded-lg">All</button><button class="p-2 rounded-lg">Read</button><button class="p-2 rounded-lg">Unread</button><button class="p-2 rounded-lg">Has Attachments</button></div></div><div class="text-[#697588] space-x-4 font-medium text-[0.75rem] pr-3 hidden lg:block"><span class="font-semibold">⟵</span><span>1-5 of 10</span><span class="font-semibold">⟶</span></div></div><div class="space-y-3"><div class="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer"><div class="flex items-center gap-2 md:gap-3 w-full md:w-auto "><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4 md:w-5 md:h-5" src="./Kazentic App_files/Kemail.svg" style="color: transparent;"><div class="w-4 h-4 min-w-[20px] rounded-full flex items-center justify-center flex-shrink-0"><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4" src="./Kazentic App_files/starActive.svg" style="color: transparent;"></div><div class="flex  flex-col text-center  justify-center items-center w-full md:w-auto"><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">Kazentic</span><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38] sm:hidden">Welcome Ab ...🎉</span></div></div><div class="hidden sm:block  flex-col items-center space-y-1"><span class="text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38]">Welcome Aboard Ali ...🎉</span></div><div class="hidden sm:block"><span class="text-[0.875rem] tracking-tighter text-[#697588] font-medium ">Aug 9, 2025 • 10:00 AM</span></div></div><div class="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer"><div class="flex items-center gap-2 md:gap-3 w-full md:w-auto "><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4 md:w-5 md:h-5" src="./Kazentic App_files/Kemail.svg" style="color: transparent;"><div class="w-4 h-4 min-w-[20px] rounded-full flex items-center justify-center flex-shrink-0"><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4" src="./Kazentic App_files/star.svg" style="color: transparent;"></div><div class="flex  flex-col text-center  justify-center items-center w-full md:w-auto"><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">Kazentic</span><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38] sm:hidden">Welcome Ab ...🎉</span></div></div><div class="hidden sm:block  flex-col items-center space-y-1"><span class="text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38]">Welcome Aboard Ali ...🎉</span></div><div class="hidden sm:block"><span class="text-[0.875rem] tracking-tighter text-[#697588] font-medium ">Aug 9, 2025 • 10:00 AM</span></div></div><div class="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer"><div class="flex items-center gap-2 md:gap-3 w-full md:w-auto "><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4 md:w-5 md:h-5" src="./Kazentic App_files/Kemail.svg" style="color: transparent;"><div class="w-4 h-4 min-w-[20px] rounded-full flex items-center justify-center flex-shrink-0"><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4" src="./Kazentic App_files/starActive.svg" style="color: transparent;"></div><div class="flex  flex-col text-center  justify-center items-center w-full md:w-auto"><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">Kazentic</span><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38] sm:hidden">Welcome Ab ...🎉</span></div></div><div class="hidden sm:block  flex-col items-center space-y-1"><span class="text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38]">Welcome Aboard Ali ...🎉</span></div><div class="hidden sm:block"><span class="text-[0.875rem] tracking-tighter text-[#697588] font-medium ">Aug 9, 2025 • 10:00 AM</span></div></div><div class="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer"><div class="flex items-center gap-2 md:gap-3 w-full md:w-auto "><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4 md:w-5 md:h-5" src="./Kazentic App_files/Kemail.svg" style="color: transparent;"><div class="w-4 h-4 min-w-[20px] rounded-full flex items-center justify-center flex-shrink-0"><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4" src="./Kazentic App_files/star.svg" style="color: transparent;"></div><div class="flex  flex-col text-center  justify-center items-center w-full md:w-auto"><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">Kazentic</span><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38] sm:hidden">Welcome Ab ...🎉</span></div></div><div class="hidden sm:block  flex-col items-center space-y-1"><span class="text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38]">Welcome Aboard Ali ...🎉</span></div><div class="hidden sm:block"><span class="text-[0.875rem] tracking-tighter text-[#697588] font-medium ">Aug 9, 2025 • 10:00 AM</span></div></div><div class="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer"><div class="flex items-center gap-2 md:gap-3 w-full md:w-auto "><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4 md:w-5 md:h-5" src="./Kazentic App_files/Kemail.svg" style="color: transparent;"><div class="w-4 h-4 min-w-[20px] rounded-full flex items-center justify-center flex-shrink-0"><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4" src="./Kazentic App_files/star.svg" style="color: transparent;"></div><div class="flex  flex-col text-center  justify-center items-center w-full md:w-auto"><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">Kazentic</span><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38] sm:hidden">Draft: You ...🎉</span></div></div><div class="hidden sm:block  flex-col items-center space-y-1"><span class="text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38]">Draft: Your Applic ...🎉</span></div><div class="hidden sm:block"><span class="text-[0.875rem] tracking-tighter text-[#697588] font-medium ">Aug 9, 2025 • 11:00 AM</span></div></div><div class="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer"><div class="flex items-center gap-2 md:gap-3 w-full md:w-auto "><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4 md:w-5 md:h-5" src="./Kazentic App_files/Kemail.svg" style="color: transparent;"><div class="w-4 h-4 min-w-[20px] rounded-full flex items-center justify-center flex-shrink-0"><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4" src="./Kazentic App_files/star.svg" style="color: transparent;"></div><div class="flex  flex-col text-center  justify-center items-center w-full md:w-auto"><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">Kazentic</span><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38] sm:hidden">Draft: Job ...🎉</span></div></div><div class="hidden sm:block  flex-col items-center space-y-1"><span class="text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38]">Draft: Job Applica ...🎉</span></div><div class="hidden sm:block"><span class="text-[0.875rem] tracking-tighter text-[#697588] font-medium ">Aug 9, 2025 • 11:30 AM</span></div></div><div class="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer"><div class="flex items-center gap-2 md:gap-3 w-full md:w-auto "><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4 md:w-5 md:h-5" src="./Kazentic App_files/Kemail.svg" style="color: transparent;"><div class="w-4 h-4 min-w-[20px] rounded-full flex items-center justify-center flex-shrink-0"><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4" src="./Kazentic App_files/star.svg" style="color: transparent;"></div><div class="flex  flex-col text-center  justify-center items-center w-full md:w-auto"><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">Kazentic</span><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38] sm:hidden">Spam: New  ...🎉</span></div></div><div class="hidden sm:block  flex-col items-center space-y-1"><span class="text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38]">Spam: New Opportun ...🎉</span></div><div class="hidden sm:block"><span class="text-[0.875rem] tracking-tighter text-[#697588] font-medium ">Aug 9, 2025 • 12:00 PM</span></div></div><div class="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer"><div class="flex items-center gap-2 md:gap-3 w-full md:w-auto "><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4 md:w-5 md:h-5" src="./Kazentic App_files/Kemail.svg" style="color: transparent;"><div class="w-4 h-4 min-w-[20px] rounded-full flex items-center justify-center flex-shrink-0"><img alt="icon" loading="lazy" width="20" height="20" decoding="async" data-nimg="1" class="w-4 h-4" src="./Kazentic App_files/star.svg" style="color: transparent;"></div><div class="flex  flex-col text-center  justify-center items-center w-full md:w-auto"><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">Kazentic</span><span class="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38] sm:hidden">Trash: Imp ...🎉</span></div></div><div class="hidden sm:block  flex-col items-center space-y-1"><span class="text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38]">Trash: Important A ...🎉</span></div><div class="hidden sm:block"><span class="text-[0.875rem] tracking-tighter text-[#697588] font-medium ">Aug 9, 2025 • 12:30 PM</span></div></div></div></div></div></div></div></div></div></div></div></div><div data-rht-toaster="" style="position:fixed;z-index:9999;top:16px;left:16px;right:16px;bottom:16px;pointer-events:none"></div><script src="./Kazentic App_files/webpack.js.download" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/_next/static/css/app/layout.css?v=1764853462619\",\"style\"]\n0:\"$L2\"\n"])</script><script>self.__next_f.push([1,"3:I[\"(app-pages-browser)/./node_modules/.pnpm/next@14.1.3_@babel+core@7.2_c5b02377d8fcd0aeac923a2cab560d0e/node_modules/next/dist/client/components/app-router.js\",[\"app-pages-internals\",\"static/chunks/app-pages-internals.js\"],\"\"]\n5:I[\"(app-pages-browser)/./node_modules/.pnpm/next@14.1.3_@babel+core@7.2_c5b02377d8fcd0aeac923a2cab560d0e/node_modules/next/dist/client/components/static-generation-searchparams-bailout-provider.js\",[\"app-pages-internals\",\"static/chunks/app-pages-internals.js\"],\"\"]\n6:I[\"(app-pages"])</script><script>self.__next_f.push([1,"-browser)/./src/app/(application)/email/page.tsx\",[\"app/(application)/email/page\",\"static/chunks/app/(application)/email/page.js\"],\"\"]\n7:I[\"(app-pages-browser)/./node_modules/.pnpm/next@14.1.3_@babel+core@7.2_c5b02377d8fcd0aeac923a2cab560d0e/node_modules/next/dist/client/components/layout-router.js\",[\"app-pages-internals\",\"static/chunks/app-pages-internals.js\"],\"\"]\n8:I[\"(app-pages-browser)/./node_modules/.pnpm/next@14.1.3_@babel+core@7.2_c5b02377d8fcd0aeac923a2cab560d0e/node_modules/next/dist/client/compone"])</script><script>self.__next_f.push([1,"nts/render-from-template-context.js\",[\"app-pages-internals\",\"static/chunks/app-pages-internals.js\"],\"\"]\n9:I[\"(app-pages-browser)/./node_modules/.pnpm/next@14.1.3_@babel+core@7.2_c5b02377d8fcd0aeac923a2cab560d0e/node_modules/next/dist/client/image-component.js\",[\"app/(application)/layout\",\"static/chunks/app/(application)/layout.js\"],\"Image\"]\ne:I[\"(app-pages-browser)/./node_modules/.pnpm/react-hot-toast@2.6.0_react_ded90e1b846baadbbbfd259e63483099/node_modules/react-hot-toast/dist/index.mjs\",[\"app/layout\",\"st"])</script><script>self.__next_f.push([1,"atic/chunks/app/layout.js\"],\"Toaster\"]\n10:I[\"(app-pages-browser)/./node_modules/.pnpm/next@14.1.3_@babel+core@7.2_c5b02377d8fcd0aeac923a2cab560d0e/node_modules/next/dist/client/components/error-boundary.js\",[\"app-pages-internals\",\"static/chunks/app-pages-internals.js\"],\"\"]\na:{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"ce"])</script><script>self.__next_f.push([1,"nter\"}\nb:{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"}\nc:{\"display\":\"inline-block\"}\nd:{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0}\n11:[]\n"])</script><script>self.__next_f.push([1,"2:[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/app/layout.css?v=1764853462619\",\"precedence\":\"next_static/css/app/layout.css\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"$L3\",null,{\"buildId\":\"development\",\"assetPrefix\":\"\",\"initialCanonicalUrl\":\"/email\",\"initialTree\":[\"\",{\"children\":[\"(application)\",{\"children\":[\"email\",{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"(application)\",{\"children\":[\"email\",{\"children\":[\"__PAGE__\",{},[\"$L4\",[\"$\",\"$L5\",null,{\"propsForComponent\":{\"params\":{},\"searchParams\":{}},\"Component\":\"$6\",\"isStaticGeneration\":false}],null]]},[\"$\",\"$L7\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"(application)\",\"children\",\"email\",\"children\"],\"loading\":\"$undefined\",\"loadingStyles\":\"$undefined\",\"loadingScripts\":\"$undefined\",\"hasLoading\":false,\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}]]},[null,[\"$\",\"div\",null,{\"className\":\"flex flex-col h-screen\",\"children\":[[\"$\",\"div\",null,{\"className\":\"w-full bg-gradient-to-r from-[#111953] via-[#111953] to-[#4157FE] text-[#FFFFFF]\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex justify-between h-[2.375rem]  items-center\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex\",\"children\":[\"$\",\"$L9\",null,{\"src\":\"/assets/K.svg\",\"className\":\"flex justify-start\",\"alt\":\"icon\",\"width\":50,\"height\":50}]}],[\"$\",\"div\",null,{\"className\":\"flex justify-center items-center h-7 bg-transparent border border-gray-500 rounded-lg w-[20%] max-w-xl pl-4 font-medium ml-16\",\"children\":[[\"$\",\"$L9\",null,{\"src\":\"/assets/topbarSearch.svg\",\"alt\":\"Search Icon\",\"width\":20,\"height\":20}],[\"$\",\"input\",null,{\"type\":\"text\",\"placeholder\":\"Search ...\",\"className\":\"w-full h- bg-transparent text-[#FFFFFF] placeholder-[#FFFFFF] focus:outline-none ml-2\"}],[\"$\",\"div\",null,{\"className\":\"ml-auto h-7  pr-1 border-l-2 border-gray-500 pl-1 flex justify-center items-center\",\"children\":[\"$\",\"$L9\",null,{\"src\":\"/assets/topbarDeco.svg\",\"alt\":\"icon\",\"width\":24,\"height\":24}]}]]}],[\"$\",\"div\",null,{\"className\":\"flex items-center space-x-2 pr-2\",\"children\":[[\"$\",\"button\",null,{\"className\":\"text-white\",\"children\":[\"$\",\"$L9\",null,{\"src\":\"/assets/notification.svg\",\"alt\":\"Notification\",\"width\":20,\"height\":20}]}],[\"$\",\"button\",null,{\"className\":\"text-white\",\"children\":[\"$\",\"$L9\",null,{\"src\":\"/assets/menu.svg\",\"alt\":\"Menu\",\"height\":16,\"width\":16}]}],[\"$\",\"div\",null,{\"className\":\"w-[1px] h-7 bg-gray-300 bg-opacity-30\",\"children\":\" \"}],[\"$\",\"div\",null,{\"className\":\"flex items-center space-x-2 \",\"children\":[[\"$\",\"div\",null,{\"className\":\"w-8 h-8 rounded-full\",\"children\":[\"$\",\"$L9\",null,{\"src\":\"/assets/profile.svg\",\"alt\":\"Profile\",\"width\":32,\"height\":32,\"className\":\" rounded-full\"}]}],[\"$\",\"div\",null,{\"className\":\" hidden lg:flex lg:flex-col leading-3 pt-1 text-[#FFFFFF]\",\"children\":[[\"$\",\"div\",null,{\"className\":\"font-bold text-[0.813rem]\",\"children\":\"Shihab\"}],[\"$\",\"div\",null,{\"className\":\"text-[0.75rem] text-opacity-70 \",\"children\":\"shihab@kazentic.com\"}]]}]]}],[\"$\",\"$L9\",null,{\"src\":\"/assets/moreB.svg\",\"alt\":\"icon\",\"width\":20,\"height\":20}]]}]]}]}],[\"$\",\"div\",null,{\"className\":\"flex flex-grow\",\"children\":[[\"$\",\"div\",null,{\"className\":\"w-[2.375rem] bg-[#111953] text-[#FFFFFF] flex flex-col items-center z-6 pb-10\",\"children\":[\"$\",\"div\",null,{\"className\":\" w-[2.375rem]  flex flex-grow flex-col items-center \",\"children\":[[\"$\",\"div\",null,{\"className\":\"space-y-3 mt-3 flex flex-col flex-1 items-center\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex flex-row justify-center items-center\",\"children\":[[\"$\",\"div\",null,{\"className\":\"w-1 h-2 bg-white rounded-r-full absolute left-0\"}],[\"$\",\"button\",null,{\"className\":\"w-[1.5rem] h-[1.5rem] bg-gradient-to-b from-[#FF9F00] to-[#FDBF00] rounded-lg flex justify-center text-center \",\"children\":[\"$\",\"span\",null,{\"className\":\"text-[#FFFFFF] text-[1rem] font-medium\",\"children\":\"C\"}]}]]}],[\"$\",\"button\",null,{\"className\":\"w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center  items-center pb-1  mt-4 hover:bg-slate-600 hover:border hover:border-gray-400 hover:bg-opacity-40 \",\"children\":[\"$\",\"span\",null,{\"className\":\"text-[#3f55f9] text-[1.9rem]\",\"children\":\"+\"}]}],[\"$\",\"div\",null,{\"className\":\"w-6 h-[0.1rem] bg-gray-600\"}],[\"$\",\"button\",null,{\"className\":\"w-[1.5rem] h-[1.5rem] bg-gradient-to-b from-[#FF4B00] to-[#FF9F00] rounded-lg flex justify-center text-center\",\"children\":[\"$\",\"span\",null,{\"className\":\"text-[#FFFFFF] text-[1rem] font-medium\",\"children\":\"D\"}]}],[\"$\",\"button\",null,{\"className\":\"w-[1.5rem] h-[1.5rem] bg-gradient-to-b from-[#059669] to-[#15BD6D] rounded-lg flex justify-center text-center\",\"children\":[\"$\",\"span\",null,{\"className\":\"text-[#FFFFFF] text-[1rem] font-medium\",\"children\":\"L\"}]}],[\"$\",\"button\",null,{\"className\":\"w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center  items-center pb-1  mt-4 hover:bg-slate-600 hover:border hover:border-gray-400 hover:bg-opacity-40  \",\"children\":[\"$\",\"span\",null,{\"className\":\"text-[#3f55f9] text-[1.9rem]\",\"children\":\"+\"}]}],[\"$\",\"div\",null,{\"className\":\"w-6 h-[0.1rem] bg-gray-600\"}],[\"$\",\"button\",null,{\"className\":\"w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center  items-center pb-1  mt-4 hover:bg-slate-600 hover:border hover:border-gray-400 hover:bg-opacity-40 \",\"children\":[\"$\",\"span\",null,{\"className\":\"text-[#3f55f9] text-[1.9rem]\",\"children\":\"+\"}]}]]}],[\"$\",\"div\",null,{\"className\":\"mt-auto mb-4 space-y-3 flex flex-col justify-center items-center\",\"children\":[[\"$\",\"button\",null,{\"className\":\"w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center text-center items-center border border-gray-300 border-opacity-60 bg-[#4157FE] cursor-pointer \",\"children\":[\"$\",\"$L9\",null,{\"src\":\"/assets/billing.svg\",\"alt\":\"icon\",\"width\":16,\"height\":16}]}],[\"$\",\"button\",null,{\"className\":\"w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center text-center items-center border border-gray-300 border-opacity-60 bg-[#4157FE] cursor-pointer \",\"children\":[\"$\",\"$L9\",null,{\"src\":\"/assets/bug.svg\",\"alt\":\"icon\",\"width\":16,\"height\":16}]}],[\"$\",\"button\",null,{\"className\":\"w-[1.5rem] h-[1.5rem] rounded-lg flex justify-center text-center items-center border border-gray-300 border-opacity-60 bg-[#4157FE] cursor-pointer \",\"children\":[\"$\",\"$L9\",null,{\"src\":\"/assets/support.svg\",\"alt\":\"icon\",\"width\":16,\"height\":16}]}]]}]]}]}],[\"$\",\"div\",null,{\"className\":\"flex-1 overflow-auto bg-[#111953]\",\"children\":[\"$\",\"$L7\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"(application)\",\"children\"],\"loading\":\"$undefined\",\"loadingStyles\":\"$undefined\",\"loadingScripts\":\"$undefined\",\"hasLoading\":false,\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[],\"styles\":null}]}]]}]]}],null]]},[null,[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"__className_d0be19\",\"children\":[[\"$\",\"$L7\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"loading\":\"$undefined\",\"loadingStyles\":\"$undefined\",\"loadingScripts\":\"$undefined\",\"hasLoading\":false,\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L8\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":\"$a\",\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":\"$b\",\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":\"$c\",\"children\":[\"$\",\"h2\",null,{\"style\":\"$d\",\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[],\"styles\":null}],[\"$\",\"$Le\",null,{\"position\":\"bottom-right\",\"toastOptions\":{\"className\":\"font-medium capitalize\"}}]]}]}],null]],\"initialHead\":[false,\"$Lf\"],\"globalErrorComponent\":\"$10\",\"missingSlots\":\"$W11\"}]]\n"])</script><script>self.__next_f.push([1,"f:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"Kazentic App\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"Your app description\"}]]\n4:null\n"])</script><script>self.__next_f.push([1,""])</script><next-route-announcer style="position: absolute;"><template shadowrootmode="open"><div aria-live="assertive" id="__next-route-announcer__" role="alert" style="position: absolute; border: 0px; height: 1px; margin: -1px; padding: 0px; width: 1px; clip: rect(0px, 0px, 0px, 0px); overflow: hidden; white-space: nowrap; overflow-wrap: normal;"></div></template></next-route-announcer></body></html>

@@ -14,7 +14,7 @@ export default function Page() {
       case "Dashboard":
         return <DashboardSection />;
       case "Email":
-        return <EmailSection />;
+        return <EmailSection isSidebarOpen={isSidebarOpen} />;
     }
   };
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function Page() {
       )}
       {/*Mobail section*/}
       {!isSidebarOpen && (
-        <div className="w-9 md:w-12 min-w-9 h-screen flex flex-col bg-[#FFFFFF] border-r border-[#EBEBEB] flex-shrink-0">
+        <div className="w-9 md:w-12 min-w-9 min-h-screen  flex flex-grow flex-col bg-[#FFFFFF] border-r border-[#EBEBEB] flex-shrink-0 rounded-tl-md">
           <div className="h-[2.188rem] flex items-center justify-center border-b border-[#EBEBEB]">
             <Image
               alt="icon"
@@ -69,7 +69,7 @@ export default function Page() {
           </div>
         </div>
       )}
-      <div className="w-full h-auto">{renderActiveSection()}</div>
+      <div className="w-full h-auto rounded-tl-lg">{renderActiveSection()}</div>
     </div>
   );
 }

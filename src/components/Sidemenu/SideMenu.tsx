@@ -26,7 +26,7 @@ export default function SideMenu({
 
   React.useEffect(() => {
     if (!activeSection) {
-      setActiveSection("Dashboard");
+      setActiveSection("Email");
     }
   }, [activeSection, setActiveSection]);
 
@@ -75,9 +75,9 @@ export default function SideMenu({
   };
 
   return (
-    <div className="w-[12.5rem] h-full bg-[#FFFFFF] text-[#191F38] border-r border-[#EBEBEB] flex flex-col rounded-tl-md">
+    <div className="w-[12.5rem] bg-[#FFFFFF] text-[#191F38] border-r border-[#EBEBEB] flex flex-grow flex-col rounded-tl-md md:relative absolute  z-50 ">
       {/* Carbon Stream Section */}
-      <div className="flex items-center mb-2 border-b border-[#EBEBEB] p-3 h-[2.188rem]">
+      <div className="flex items-center mb-2 border-b border-[#EBEBEB] p-3 h-[2.188rem] rounded-tl-md">
         <div className="flex items-center gap-2">
           <button className="w-[1.5rem] h-[1.5rem] bg-gradient-to-b from-[#FF9F00] to-[#FDBF00] rounded-lg flex justify-center text-center ">
             <span className="text-[#FFFFFF] text-[1rem] font-medium">C</span>
@@ -106,7 +106,7 @@ export default function SideMenu({
           src="/assets/add.svg"
           width={178}
           height={129}
-          className="w-full mb-10"
+          className="w-full"
         />
       </div>
     </div>
