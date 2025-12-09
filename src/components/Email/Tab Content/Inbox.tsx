@@ -21,20 +21,57 @@ type Props = {
 };
 
 export default function Inbox({ emails }: Props) {
+  const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
+  const [selectedEmails, setSelectedEmails] = React.useState<number[]>([]);
+  const [isMoreMenuOpen, setIsMoreMenuOpen] = React.useState(false);
+  const [isSortMenuOpen, setIsSortMenuOpen] = React.useState(false);
+  const dropdownRef = React.useRef<HTMLDivElement>(null);
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
   const tabs = ["All", "Read", "Unread", "Has Attachments"];
   const limitChars = (text: string, limit: number) => {
     if (text.length <= limit) return text;
     return text.substring(0, limit) + " ...";
   };
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+  const handleSelectAll = () => {
+    setSelectedEmails(emails.map((e) => e.id));
+  };
 
   return (
     <div className="w-full bg-[#FFFFFF] flex flex-col">
       {/* Inbox Title Section */}
-      <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-3">
-        <div className="flex felx-row items-center space-x-1 sm:space-x-2 md:space-x-3 lg:space-x-6 justify-between lg:justify-normal w-full lg:w-auto">
-          <button className="flex justify-center items-center gap-2.5">
+      <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-3 relative">
+        <div className="flex felx-row items-center space-x-1 sm:space-x-2 md:space-x-3 lg:space-x-6  lg:justify-normal w-full lg:w-auto">
+          <button
+            className="flex justify-center items-center gap-2"
+            ref={buttonRef}
+            onClick={() => {
+              setIsDropdownOpen(!isDropdownOpen);
+              if (selectedEmails.length === emails.length) {
+                setSelectedEmails([]);
+              }
+            }}
+          >
             <Image
-              src="/assets/Vector.svg"
+              src={
+                selectedEmails.length === emails.length
+                  ? "/assets/checked.svg"
+                  : "/assets/Vector.svg"
+              }
               alt="icon"
               width={16}
               height={16}
@@ -42,13 +79,75 @@ export default function Inbox({ emails }: Props) {
             />
             <ChevronDown className="w-5 h-5 text-[#697588] opacity-80 flex shrink-0" />
           </button>
-          <div className="text-[1rem] sm:text-[1.25rem] font-semibold text-[#191F38] leading-[2.125rem] ">
-            Inbox
+          <div
+            className={`flex-row items-center space-x-4  ${
+              selectedEmails.length > 0 ? "flex" : "hidden"
+            }`}
+          >
+            <Image
+              src="/assets/all-read2.svg"
+              width={20}
+              height={21}
+              alt="icon"
+              className="cursor-pointer"
+            />
+            <div className="h-5 border border-[#EBEBEB]"></div>
+            <Image
+              src="/assets/trash.svg"
+              width={20}
+              height={21}
+              alt="icon"
+              className="cursor-pointer"
+            />
+            <Image
+              src="/assets/archive.svg"
+              width={20}
+              height={20}
+              alt="icon"
+              className="cursor-pointer"
+            />
+            <Image
+              src="/assets/Vector2.svg"
+              width={20}
+              height={20}
+              alt="icon"
+              className="cursor-pointer"
+            />
+            <Image
+              src="/assets/info-circle.svg"
+              width={18}
+              height={18}
+              alt="icon"
+              className="cursor-pointer"
+            />
+            <div className="h-5 border border-[#EBEBEB]"></div>
+
+            <Image
+              src="/assets/folder-open.svg"
+              width={20}
+              height={20}
+              alt="icon"
+              className="cursor-pointer"
+            />
           </div>
-          <div className="text-[#697588] cursor-pointer">
-            &#x2022;&#x2022;&#x2022;
+
+          <div
+            className={`flex flex-row  items-center space-x-1 sm:space-x-2 md:space-x-3 lg:space-x-6 ${
+              selectedEmails.length > 0 ? "hidden" : "flex"
+            }`}
+          >
+            <div className="text-[1rem] sm:text-[1.25rem] font-semibold text-[#191F38] leading-[2.125rem] ">
+              Inbox
+            </div>
+            <div
+              className="text-[#697588] cursor-pointer"
+              onClick={() => setIsMoreMenuOpen((prev) => !prev)}
+            >
+              &#x2022;&#x2022;&#x2022;
+            </div>
           </div>
         </div>
+
         <div className="hidden lg:block justify-center items-center gap-8">
           <div className="space-x-3 text-[0.875rem] font-semibold tracking-tighter text-[#697588]">
             {tabs.map((tab) => (
@@ -58,10 +157,137 @@ export default function Inbox({ emails }: Props) {
             ))}
           </div>
         </div>
-        <div className="text-[#697588] space-x-4 font-medium text-[0.75rem] pr-3 hidden lg:block">
+        <div
+          className="text-[#697588] space-x-4 font-medium text-[0.75rem] pr-3 hidden lg:block"
+          onClick={() => setIsSortMenuOpen((prev) => !prev)}
+        >
           <span className="font-semibold">&#10229;</span>
-          <span>1-5 of 10</span>
+          <span className="cursor-pointer px-1.5 py-0.5 rounded-sm hover:border hover:border-[#EBEBEB]">
+            1-5 of 10
+          </span>
           <span className="font-semibold">&#10230;</span>
+        </div>
+        <div
+          ref={dropdownRef}
+          className={`
+            ${isDropdownOpen ? "flex" : "hidden"}
+            w-[10.5rem] h-[12.5rem] rounded-md border border-[#EBEBEB] 
+            bg-[#FFFFFF]  flex-col absolute top-[2.6rem] left-0  z-50  shadow-md shadow-[#0000000D]
+          `}
+        >
+          <div
+            className="h-[2.5rem] w-full flex flex-row pl-[1.125rem] justify-start items-center gap-3 cursor-pointer "
+            onClick={handleSelectAll}
+          >
+            <Image
+              src="/assets/tick-circle.svg"
+              width={20}
+              height={20}
+              alt="icon"
+            />
+            <span className="font-medium text-sm tracking-tight text-[#697588]">
+              Select All
+            </span>
+          </div>
+          <div className="h-[2.5rem] w-full flex flex-row pl-[1.25rem] justify-start items-center gap-3">
+            <Image
+              src="/assets/all-read.svg"
+              width={18}
+              height={18}
+              alt="icon"
+            />
+            <span className="font-medium text-sm tracking-tight text-[#697588]">
+              All Read
+            </span>
+          </div>
+          <div className="h-[2.5rem] w-full flex flex-row pl-[1.2rem] justify-start items-center gap-3 cursor-pointer">
+            <Image
+              src="/assets/sms-notification2.svg"
+              width={19}
+              height={19}
+              alt="icon"
+            />
+            <span className="font-medium text-sm tracking-tight text-[#697588]">
+              All Unread
+            </span>
+          </div>
+          <div className="h-[2.5rem] w-full flex flex-row pl-[1.125rem] justify-start items-center gap-3 cursor-pointer">
+            <Image
+              src="/assets/solar_star-bold.svg"
+              width={20}
+              height={20}
+              alt="icon"
+            />
+            <span className="font-medium text-sm tracking-tight text-[#697588]">
+              All Starred
+            </span>
+          </div>
+          <div className="h-[2.5rem] w-full flex flex-row pl-[1.125rem] justify-start items-center gap-3 cursor-pointer">
+            <Image
+              src="/assets/solar_star-line-duotone.svg"
+              width={20}
+              height={20}
+              alt="icon"
+            />
+            <span className="font-medium text-sm tracking-tight text-[#697588]">
+              All Un Starred
+            </span>
+          </div>
+        </div>
+        <div
+          className={`w-[11.3rem] h-20 shadow-md bg-[#FFFFFF] rounded-md shadow-[#0000000D] flex-col absolute top-[2.6rem] left-[9rem] z-50 cursor-pointer border border-[#EBEBEB]
+          ${isMoreMenuOpen ? "flex" : "hidden"}`}
+        >
+          <div className="h-10 w-full flex flex-row pl-[1.25rem] justify-start items-center gap-3">
+            <Image
+              src="/assets/all-read.svg"
+              width={18}
+              height={18}
+              alt="icon"
+            />
+            <span className="font-medium text-sm tracking-tight text-[#697588]">
+              Mark all as read
+            </span>
+          </div>
+          <div className="h-10 w-full flex flex-row pl-[1.25rem] justify-start items-center gap-3">
+            <Image
+              src="/assets/trash-red.svg"
+              width={18}
+              height={18}
+              alt="icon"
+            />
+            <span className="font-medium text-sm tracking-tight text-[#DC2626]">
+              Move all to trash
+            </span>
+          </div>
+        </div>
+        <div
+          className={`
+            w-[8.313rem] h-40 bg-[#FFFFFF] shadow-md shadow-[#0000000D] rounded-md border border-[#EBEBEB]
+            absolute top-[2.6rem] right-3 z-50
+            ${isSortMenuOpen ? "flex flex-col" : "hidden"}
+          `}
+        >
+          <div className="h-10 w-full pl-[1.25rem] bg-[#F2F9FE] justify-start items-center rounded-t-md">
+            <span className="font-medium text-sm tracking-tight text-[#4157FE]">
+              Newest First
+            </span>
+          </div>
+          <div className="h-10 w-full pl-[1.25rem]  justify-start items-center">
+            <span className="font-medium text-sm tracking-tight text-[#697588]">
+              Oldest First
+            </span>
+          </div>
+          <div className="h-10 w-full pl-[1.25rem]  justify-start items-center">
+            <span className="font-medium text-sm tracking-tight text-[#697588]">
+              Largest First
+            </span>
+          </div>
+          <div className="h-10 w-full pl-[1.25rem]  justify-start items-center">
+            <span className="font-medium text-sm tracking-tight text-[#697588]">
+              Smallest First
+            </span>
+          </div>
         </div>
       </div>
 
@@ -72,11 +298,17 @@ export default function Inbox({ emails }: Props) {
             <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer">
               <div className="flex items-center gap-2 md:gap-3 w-full md:w-auto ">
                 <Image
-                  src={email.icon}
+                  src={
+                    selectedEmails.includes(email.id)
+                      ? "/assets/checked.svg"
+                      : email.icon
+                  }
                   alt="icon"
                   width={20}
                   height={20}
-                  className="w-4 h-4 md:w-5 md:h-5"
+                  className={`w-4 h-4 md:w-5 md:h-5 ${
+                    selectedEmails.includes(email.id) ? "mr-2" : ""
+                  } `}
                 />
                 <div className="w-4 h-4 min-w-[20px] rounded-full flex items-center justify-center flex-shrink-0">
                   <Image

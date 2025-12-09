@@ -1,0 +1,19 @@
+export interface EmailAction {
+  label: string;
+  icon: string;
+  action: string;
+}
+
+export const emailActions: EmailAction[] = [
+  { label: "Reply", icon: "undo", action: "reply_message" },
+  { label: "Forward", icon: "redo", action: "forward_message" },
+  { label: "Filter Messages Like This", icon: "filter", action: "filter_similar" },
+  { label: "Block [Elon Mask]", icon: "block", action: "block_sender" },
+  { label: "Report Spam", icon: "info-circle2", action: "report_spam" },
+  { label: "Report Phishing", icon: "phishing", action: "report_phishing" },
+  { label: "Show Original", icon: "original", action: "show_original" },
+  { label: "Translate Message", icon: "translate", action: "translate_message" },
+  { label: "Download Message", icon: "import", action: "download_message" },
+  { label: "Mark as Unread", icon: "sms-notification2", action: "mark_unread" },
+  { label: "Print Message", icon: "printer", action: "print_message" },
+];

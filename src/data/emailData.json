@@ -2,6 +2,7 @@
     {
         "id": 1,
         "icon": "/assets/Kemail.svg",
+        "picture": "/assets/email.svg",
         "sender": "Kazentic",
         "senderEmail": "elonmusk@spacex.com",
         "subject": "Welcome Aboard Alif!",
@@ -14,7 +15,17 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat.",
         "attachments": [
             {
-                "fileName": "space_plan.pdf",
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
                 "fileSize": "5.5 MB",
                 "fileType": "pdf"
             }
@@ -23,6 +34,7 @@
     {
         "id": 2,
         "icon": "/assets/Kemail.svg",
+        "picture": "/assets/email.svg",
         "sender": "Kazentic",
         "senderEmail": "elonmusk@spacex.com",
         "subject": "Welcome Aboard Alif!",
@@ -35,7 +47,17 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat.",
         "attachments": [
             {
-                "fileName": "space_plan.pdf",
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
                 "fileSize": "5.5 MB",
                 "fileType": "pdf"
             }
@@ -44,6 +66,7 @@
     {
         "id": 3,
         "icon": "/assets/Kemail.svg",
+        "picture": "/assets/email.svg",
         "sender": "Kazentic",
         "subject": "Welcome Aboard Alif!",
         "timestamp": "Aug 9, 2025 • 10:00 AM",
@@ -52,11 +75,29 @@
         "isDraft": false,
         "isSpam": false,
         "isTrash": false,
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat."
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat.",
+        "attachments": [
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            }
+        ]
     },
     {
         "id": 4,
         "icon": "/assets/Kemail.svg",
+        "picture": "/assets/email.svg",
         "sender": "Kazentic",
         "subject": "Welcome Aboard Alif!",
         "timestamp": "Aug 9, 2025 • 10:00 AM",
@@ -64,11 +105,30 @@
         "isSent": false,
         "isDraft": false,
         "isSpam": true,
-        "isTrash": false
+        "isTrash": false,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat.",
+        "attachments": [
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            }
+        ]
     },
     {
         "id": 5,
         "icon": "/assets/Kemail.svg",
+        "picture": "/assets/email.svg",
         "sender": "Kazentic",
         "subject": "Draft: Your Application Status",
         "timestamp": "Aug 9, 2025 • 11:00 AM",
@@ -76,11 +136,30 @@
         "isSent": false,
         "isDraft": true,
         "isSpam": false,
-        "isTrash": false
+        "isTrash": false,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat.",
+        "attachments": [
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            }
+        ]
     },
     {
         "id": 6,
         "icon": "/assets/Kemail.svg",
+        "picture": "/assets/email.svg",
         "sender": "Kazentic",
         "subject": "Draft: Job Application Follow Up",
         "timestamp": "Aug 9, 2025 • 11:30 AM",
@@ -88,11 +167,30 @@
         "isSent": false,
         "isDraft": true,
         "isSpam": false,
-        "isTrash": false
+        "isTrash": false,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat.",
+        "attachments": [
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            }
+        ]
     },
     {
         "id": 7,
         "icon": "/assets/Kemail.svg",
+        "picture": "/assets/email.svg",
         "sender": "Kazentic",
         "subject": "Spam: New Opportunity",
         "timestamp": "Aug 9, 2025 • 12:00 PM",
@@ -100,11 +198,30 @@
         "isSent": false,
         "isDraft": false,
         "isSpam": true,
-        "isTrash": false
+        "isTrash": false,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat.",
+        "attachments": [
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            }
+        ]
     },
     {
         "id": 8,
         "icon": "/assets/Kemail.svg",
+        "picture": "/assets/email.svg",
         "sender": "Kazentic",
         "subject": "Trash: Important Announcement",
         "timestamp": "Aug 9, 2025 • 12:30 PM",
@@ -112,6 +229,24 @@
         "isSent": false,
         "isDraft": false,
         "isSpam": false,
-        "isTrash": true
+        "isTrash": true,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat.",
+        "attachments": [
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            },
+            {
+                "fileName": "inquiry.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            }
+        ]
     }
 ]
