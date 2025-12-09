@@ -14,15 +14,29 @@ type SectionItem = {
 type Props = {
   setActiveSection: (section: string | null) => void;
   activeSection: string | null;
+  isSidebarOpen: boolean;
   setIsSidebarOpen: (open: boolean) => void;
 };
 
 export default function SideMenu({
   setActiveSection,
   activeSection,
+  isSidebarOpen,
   setIsSidebarOpen,
 }: Props) {
   const [isManageOpen, setIsManageOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1100) setIsSidebarOpen(false);
+      else setIsSidebarOpen(true);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [setIsSidebarOpen]);
 
   React.useEffect(() => {
     if (!activeSection) {
@@ -30,9 +44,7 @@ export default function SideMenu({
     }
   }, [activeSection, setActiveSection]);
 
-  const toggleManageDropdown = () => {
-    setIsManageOpen(!isManageOpen);
-  };
+  const toggleDropdown = () => setIsManageOpen(!isManageOpen);
 
   const handleSectionClick = (section: string) => {
     setActiveSection(section === activeSection ? null : section);
@@ -60,6 +72,7 @@ export default function SideMenu({
                 className={`transition-transform  duration-300  ml-12  ${
                   isManageOpen ? "rotate-180" : ""
                 }`}
+                onClick={toggleDropdown}
               />
             )}
           </div>
@@ -74,8 +87,39 @@ export default function SideMenu({
     );
   };
 
+  //mobail section
+  if (!isSidebarOpen) {
+    return (
+      <div className="w-9 md:w-12 min-w-9 flex flex-grow flex-col bg-[#FFFFFF] border-r border-[#EBEBEB] flex-shrink-0 rounded-tl-md">
+        <div className="h-[2.188rem] flex items-center justify-center border-b border-[#EBEBEB]">
+          <Image
+            alt="icon"
+            src="/assets/sidemenu.svg"
+            width={16}
+            height={16}
+            className="cursor-pointer"
+            onClick={() => setIsSidebarOpen(true)}
+          />
+        </div>
+        <div className="flex flex-col space-y-[21.5px] pt-4">
+          {sectionsData.map((section) => (
+            <button key={section.name} className="flex justify-center">
+              <Image
+                src={section.icon}
+                alt={section.name}
+                width={20}
+                height={20}
+                className="opacity-80 hover:opacity-100 transition cursor-pointer"
+              />
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="w-[12.5rem] bg-[#FFFFFF] text-[#191F38] border-r border-[#EBEBEB] flex flex-grow flex-col rounded-tl-md md:relative absolute  z-50 ">
+    <div className="w-[12.5rem]  bg-[#FFFFFF] text-[#191F38] border-r border-[#EBEBEB] flex flex-grow flex-col rounded-tl-md md:relative absolute  z-50 ">
       {/* Carbon Stream Section */}
       <div className="flex items-center mb-2 border-b border-[#EBEBEB] p-3 h-[2.188rem] rounded-tl-md">
         <div className="flex items-center gap-2">

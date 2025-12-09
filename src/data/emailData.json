@@ -3,25 +3,43 @@
         "id": 1,
         "icon": "/assets/Kemail.svg",
         "sender": "Kazentic",
+        "senderEmail": "elonmusk@spacex.com",
         "subject": "Welcome Aboard Alif!",
         "timestamp": "Aug 9, 2025 • 10:00 AM",
         "isStarred": true,
         "isSent": false,
         "isDraft": false,
         "isSpam": false,
-        "isTrash": false
+        "isTrash": false,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat.",
+        "attachments": [
+            {
+                "fileName": "space_plan.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            }
+        ]
     },
     {
         "id": 2,
         "icon": "/assets/Kemail.svg",
         "sender": "Kazentic",
+        "senderEmail": "elonmusk@spacex.com",
         "subject": "Welcome Aboard Alif!",
         "timestamp": "Aug 9, 2025 • 10:00 AM",
         "isStarred": false,
         "isSent": true,
         "isDraft": false,
         "isSpam": false,
-        "isTrash": false
+        "isTrash": false,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat.",
+        "attachments": [
+            {
+                "fileName": "space_plan.pdf",
+                "fileSize": "5.5 MB",
+                "fileType": "pdf"
+            }
+        ]
     },
     {
         "id": 3,
@@ -33,7 +51,8 @@
         "isSent": false,
         "isDraft": false,
         "isSpam": false,
-        "isTrash": false
+        "isTrash": false,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris volutpat."
     },
     {
         "id": 4,

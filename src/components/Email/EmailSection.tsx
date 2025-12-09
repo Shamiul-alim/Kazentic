@@ -38,6 +38,7 @@ export default function EmailSection({ isSidebarOpen }: EmailSectionProps) {
   const filterEmails = () => {
     switch (activeTab) {
       case "Inbox":
+        return InboxData;
       case "All Mail":
         return InboxData;
       case "Starred":
@@ -87,24 +88,6 @@ export default function EmailSection({ isSidebarOpen }: EmailSectionProps) {
         isMobile && isSidebarOpen ? "rounded-tl-lg" : ""
       }`}
     >
-      <div className="flex  items-center  mb-2  border-b border-[#EBEBEB] p-2 sm:pl-3 md:pl-5 h-[2.188rem] ">
-        <span className="text-[0.7rem] sm:texxt-[0.875rem] text-[#8F97A2] font-medium">
-          Menu
-        </span>
-        <span className="text-[0.7rem] sm:text-[0.875rem] text-[#8F97A2] font-medium ml-3">
-          &#x2022;
-        </span>
-        <span className="text-[0.875rem] text-[#191F38] font-medium ml-3 ">
-          Inbox
-        </span>
-        <Image
-          src="/assets/messageQuestion.svg"
-          alt="icon"
-          width={20}
-          height={20}
-          className="ml-auto mr-[0.4rem] shrink-0"
-        />
-      </div>
       <div className=" rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] sm:m-[0.9rem] md:m-[1.25rem] flex flex-row items-center justify-between pl-3 pr-3">
         <div className="flex flex-row h-[2.8rem] md:h-[3.25rem]  py-[0.688rem]  border-r border-[#EBEBEB] space-x-2  ">
           <div className=" rounded-full bg-[#4157FE] w-[1.5rem] h-[1.5rem] md:h-[1.875rem] md:w-[1.875rem] flex justify-center items-center">

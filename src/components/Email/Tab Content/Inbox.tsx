@@ -3,6 +3,7 @@ import React from "react";
 import emailInboxData from "@/data/emailData.json";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 type emailInboxData = {
   id: number;
@@ -11,6 +12,9 @@ type emailInboxData = {
   subject: string;
   timestamp: string;
   isStarred: boolean;
+  description?: string;
+  senderEmail?: string;
+  attachments?: { fileName: string; fileSize: string }[];
 };
 type Props = {
   emails: emailInboxData[];
@@ -64,53 +68,52 @@ export default function Inbox({ emails }: Props) {
       {/* Emails List */}
       <div className="space-y-3">
         {emails.map((email) => (
-          <div
-            key={email.id}
-            className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer"
-          >
-            <div className="flex items-center gap-2 md:gap-3 w-full md:w-auto ">
-              <Image
-                src={email.icon}
-                alt="icon"
-                width={20}
-                height={20}
-                className="w-4 h-4 md:w-5 md:h-5"
-              />
-              <div className="w-4 h-4 min-w-[20px] rounded-full flex items-center justify-center flex-shrink-0">
+          <Link href={`/email/${email.id}`} key={email.id}>
+            <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer">
+              <div className="flex items-center gap-2 md:gap-3 w-full md:w-auto ">
                 <Image
-                  src={`${
-                    email.isStarred
-                      ? "/assets/starActive.svg"
-                      : "/assets/star.svg"
-                  }`}
+                  src={email.icon}
                   alt="icon"
                   width={20}
                   height={20}
-                  className="w-4 h-4"
+                  className="w-4 h-4 md:w-5 md:h-5"
                 />
+                <div className="w-4 h-4 min-w-[20px] rounded-full flex items-center justify-center flex-shrink-0">
+                  <Image
+                    src={`${
+                      email.isStarred
+                        ? "/assets/starActive.svg"
+                        : "/assets/star.svg"
+                    }`}
+                    alt="icon"
+                    width={20}
+                    height={20}
+                    className="w-4 h-4"
+                  />
+                </div>
+                <div className="flex  flex-col text-center  justify-center items-center w-full md:w-auto">
+                  <span className="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">
+                    {email.sender}
+                  </span>
+                  <span className="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38] sm:hidden">
+                    {limitChars(email.subject, 10)}🎉
+                  </span>
+                </div>
               </div>
-              <div className="flex  flex-col text-center  justify-center items-center w-full md:w-auto">
-                <span className="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">
-                  {email.sender}
+
+              <div className="hidden sm:block  flex-col items-center space-y-1">
+                <span className="text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38]">
+                  {limitChars(email.subject, 18)}🎉
                 </span>
-                <span className="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38] sm:hidden">
-                  {limitChars(email.subject, 10)}🎉
+              </div>
+
+              <div className="hidden sm:block">
+                <span className="text-[0.875rem] tracking-tighter text-[#697588] font-medium ">
+                  {email.timestamp}
                 </span>
               </div>
             </div>
-
-            <div className="hidden sm:block  flex-col items-center space-y-1">
-              <span className="text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38]">
-                {limitChars(email.subject, 18)}🎉
-              </span>
-            </div>
-
-            <div className="hidden sm:block">
-              <span className="text-[0.875rem] tracking-tighter text-[#697588] font-medium ">
-                {email.timestamp}
-              </span>
-            </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
