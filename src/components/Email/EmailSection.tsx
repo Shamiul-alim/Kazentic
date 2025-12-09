@@ -84,7 +84,7 @@ export default function EmailSection({ isSidebarOpen }: EmailSectionProps) {
 
   return (
     <div
-      className={`w-full h-full bg-[#FFFFFF] flex flex-col ${
+      className={`w-full bg-[#FFFFFF] flex flex-col ${
         isMobile && isSidebarOpen ? "rounded-tl-lg" : ""
       }`}
     >
@@ -181,7 +181,7 @@ export default function EmailSection({ isSidebarOpen }: EmailSectionProps) {
           </div>
         )}
         <div
-          className={`transition-all duration-500 ease-out w-full h-screen overflow-x-auto  ${
+          className={`transition-all duration-500 ease-out w-full h-screen overflow-y-auto  ${
             activeTab ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
         >

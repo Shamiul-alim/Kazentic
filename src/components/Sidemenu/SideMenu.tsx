@@ -75,7 +75,7 @@ export default function SideMenu({
           <div className="flex w-auto pr-5">
             {section.hasDropdown && (
               <ChevronDown
-                className={`transition-transform  duration-300  ml-12  ${
+                className={`transition-transform  duration-300  ml-14  ${
                   isManageOpen ? "rotate-180" : ""
                 }`}
                 onClick={toggleDropdown}
@@ -96,7 +96,7 @@ export default function SideMenu({
   //mobail section
   if (!isSidebarOpen) {
     return (
-      <div className="w-9 md:w-12 min-w-9 flex flex-grow flex-col bg-[#FFFFFF] border-r border-[#EBEBEB] flex-shrink-0 rounded-tl-md">
+      <div className="w-9 md:w-12 min-w-9 h-full flex flex-grow flex-col bg-[#FFFFFF] border-r border-[#EBEBEB] flex-shrink-0 rounded-tl-md">
         <div className="h-[2.188rem] flex items-center justify-center border-b border-[#EBEBEB]">
           <Image
             alt="icon"
@@ -125,7 +125,7 @@ export default function SideMenu({
   }
 
   return (
-    <div className="w-[12.5rem]  bg-[#FFFFFF] text-[#191F38] border-r border-[#EBEBEB] flex flex-grow flex-col rounded-tl-md md:relative absolute  z-50 ">
+    <div className="w-[12.5rem] h-full bg-[#FFFFFF] text-[#191F38] border-r border-[#EBEBEB] flex flex-grow flex-col rounded-tl-md md:relative absolute  z-50 ">
       {/* Carbon Stream Section */}
       <div className="flex items-center mb-2 border-b border-[#EBEBEB] p-3 h-[2.188rem] rounded-tl-md">
         <div className="flex items-center gap-2">
