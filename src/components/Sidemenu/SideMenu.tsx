@@ -4,10 +4,12 @@ import * as React from "react";
 import { ChevronDown } from "lucide-react";
 import sectionsData from "@/data/sectionsData.json";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 type SectionItem = {
   name: string;
   icon: string;
+  path?: string;
   hasDropdown?: boolean;
   children?: SectionItem[];
 };
@@ -25,6 +27,7 @@ export default function SideMenu({
   setIsSidebarOpen,
 }: Props) {
   const [isManageOpen, setIsManageOpen] = React.useState(false);
+  const router = useRouter();
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -46,8 +49,11 @@ export default function SideMenu({
 
   const toggleDropdown = () => setIsManageOpen(!isManageOpen);
 
-  const handleSectionClick = (section: string) => {
-    setActiveSection(section === activeSection ? null : section);
+  const handleSectionClick = (section: SectionItem) => {
+    setActiveSection(section.name);
+    if (section.path) {
+      router.push(section.path);
+    }
   };
 
   const renderSection = (section: SectionItem) => {
@@ -61,7 +67,7 @@ export default function SideMenu({
     return (
       <div key={section.name}>
         <button
-          onClick={() => handleSectionClick(section.name)}
+          onClick={() => handleSectionClick(section)}
           className={sectionClass}
         >
           <Image src={section.icon} alt="icon" width={18} height={18} />

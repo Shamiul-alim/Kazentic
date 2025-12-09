@@ -1,7 +1,8 @@
 [
   {
     "name": "Dashboard",
-    "icon": "/assets/dashboardIcon.svg"
+    "icon": "/assets/dashboardIcon.svg",
+    "path": "/dashboard"
   },
   {
     "name": "Manage",
@@ -10,76 +11,94 @@
     "children": [
       {
         "name": "Settings",
-        "icon": "/assets/manageIcon.svg"
+        "icon": "/assets/manageIcon.svg",
+        "path": "/manage/settings"
       },
       {
         "name": "Employees",
-        "icon": "/assets/manageIcon.svg"
+        "icon": "/assets/manageIcon.svg",
+        "path": "/manage/employees"
       },
       {
         "name": "Guests",
-        "icon": "/assets/manageIcon.svg"
+        "icon": "/assets/manageIcon.svg",
+        "path": "/manage/guests"
       },
       {
         "name": "Teams",
-        "icon": "/assets/manageIcon.svg"
+        "icon": "/assets/manageIcon.svg",
+        "path": "/manage/teams"
       },
       {
         "name": "Access Control",
-        "icon": "/assets/manageIcon.svg"
+        "icon": "/assets/manageIcon.svg",
+        "path": "/manage/access-control"
       },
       {
         "name": "Statistics",
-        "icon": "/assets/manageIcon.svg"
+        "icon": "/assets/manageIcon.svg",
+        "path": "/manage/statistics"
       },
       {
         "name": "Configurations",
-        "icon": "/assets/manageIcon.svg"
+        "icon": "/assets/manageIcon.svg",
+        "path": "/manage/configurations"
       }
     ]
   },
   {
     "name": "Time Tracker",
-    "icon": "/assets/timetrackerIcon.svg"
+    "icon": "/assets/timetrackerIcon.svg",
+    "path": "/time-tracker"
   },
   {
     "name": "Tasks",
-    "icon": "/assets/taskIcon.svg"
+    "icon": "/assets/taskIcon.svg",
+    "path": "/tasks"
   },
   {
     "name": "Reports",
-    "icon": "/assets/reportIcon.svg"
+    "icon": "/assets/reportIcon.svg",
+    "path": "/reports"
   },
   {
     "name": "Email",
-    "icon": "/assets/emailIcon.svg"
+    "icon": "/assets/emailIcon.svg",
+    "path": "/email"
   },
   {
     "name": "Storage",
-    "icon": "/assets/storageIcon.svg"
+    "icon": "/assets/storageIcon.svg",
+    "path": "/storage"
   },
   {
     "name": "Calendar",
-    "icon": "/assets/calendarIcon.svg"
+    "icon": "/assets/calendarIcon.svg",
+    "path": "/calendar"
   },
   {
     "name": "Notes",
-    "icon": "/assets/notesIcon.svg"
+    "icon": "/assets/notesIcon.svg",
+    "path": "/notes"
   },
   {
     "name": "HRM",
-    "icon": "/assets/hrmIcon.svg"
+    "icon": "/assets/hrmIcon.svg",
+    "path": "/hrm"
   },
   {
     "name": "CRM",
-    "icon": "/assets/crmIcon.svg"
+    "icon": "/assets/crmIcon.svg",
+    "path": "/crm"
   },
   {
     "name": "Chat",
-    "icon": "/assets/chatIcon.svg"
+    "icon": "/assets/chatIcon.svg",
+    "path": "/chat"
   },
   {
     "name": "Forms",
-    "icon": "/assets/formsIcon.svg"
+    "icon": "/assets/formsIcon.svg",
+    "path": "/forms"
   }
 ]
