@@ -10,6 +10,10 @@ import {
 import { useRouter } from "next/navigation";
 import FloatingForm from "@/components/Signup/FloatingForm";
 import Image from "next/image";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ChevronDown } from "lucide-react";
 
 export default function Signup() {
   const methods = useForm<FieldValues>({
@@ -21,7 +25,7 @@ export default function Signup() {
     formState: { errors },
     watch,
   } = methods;
-  const [activeTab, setActiveTab] = useState("personal");
+  const [activeTab, setActiveTab] = useState("Personal");
   const [isFormVisible, setIsFormVisible] = useState(false);
   const router = useRouter();
 
@@ -43,9 +47,9 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex bg-[#FFFFFF] ">
+    <div className="min-h-screen w-full flex bg-[#FFFFFF]">
       {/*left section*/}
-      <div className="lg:w-1/2 flex flex-col justify-start px-8 lg:px-8 py-8 w-full">
+      <div className="flex-1 flex flex-col justify-start pl-6 pr-6 lg:pr-0 py-[1.375rem] w-full lg:max-w-[1000px] xl:max-w-[1200px] 2xl:max-w-[1400px] ">
         {/* Logo */}
         <div className="items-center mb-10 cursor-pointer">
           <Image
@@ -72,12 +76,11 @@ export default function Signup() {
 
           {/* Tabs */}
           <div className="flex gap-3 mt-5">
-            {["personal", "team", "organization"].map((t) => (
+            {["Personal", "Team", "Organization"].map((t) => (
               <button
                 key={t}
                 onClick={() => handleTabSwitch(t)}
-                className={`px-3 py-1 flex items-center gap-[0.5rem] rounded-md border transition
-                            shadow-sm 
+                className={`px-3 py-1 flex items-center gap-[0.5rem] rounded-md border transition shadow-sm shadow-[#0000000D] 
                           ${
                             activeTab === t
                               ? "border-[#4157FE26]  bg-[#F2F9FE]"
@@ -90,40 +93,37 @@ export default function Signup() {
                   alt={`${t} icon`}
                   width={20}
                   height={20}
+                  className="w-4 lg:w-5"
                 />
                 <span
-                  className={`font-medium text-[0.7rem] sm:text[0.9]   ${
+                  className={`font-medium text-xs sm:text-sm   ${
                     activeTab === t ? "text-[#4157FE]" : "text-[#191F38]"
                   }`}
                 >
-                  {t.charAt(0).toUpperCase() + t.slice(1)}
+                  {t}
                 </span>
               </button>
             ))}
           </div>
 
           {/* Form */}
-          <div className="mt-4 transition-all duration-500 ease-in-out overflow-x-hidden overflow-y-auto hide-scrollbar max-h-[29rem]">
+          <div className="mt-4 transition-all duration-500 ease-in-out overflow-x-hidden overflow-y-auto hide-scrollbar max-h-[40.5rem]">
             <FormProvider {...methods}>
               <form
                 className="mt-2 space-y-6"
                 onSubmit={methods.handleSubmit(onSubmit)}
               >
                 {/* Team Form */}
-                {activeTab === "team" && (
+                {activeTab === "Team" && (
                   <div>
                     {/*Team Name*/}
 
-                    <label className="font-medium text-[#191F38] text-[0.881]">
-                      Team Name
-                    </label>
-                    <input
+                    <Label>Team Name</Label>
+                    <Input
                       {...methods.register("teamname", {
                         required: "Team Name is required",
                       })}
                       placeholder="eg. XYZ Inc."
-                      className="w-full h-[2.516rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2  outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100 "
                     />
                     {methods.formState.errors.teamname && (
                       <p className="text-red-500">
@@ -133,7 +133,7 @@ export default function Signup() {
                   </div>
                 )}
                 {/* Organization Form */}
-                {activeTab === "organization" && (
+                {activeTab === "Organization" && (
                   <div>
                     {/*Claim Ownership*/}
                     <button
@@ -156,16 +156,12 @@ export default function Signup() {
                     {isFormVisible && <FloatingForm onClose={toggleForm} />}
                     {/*Organization Name*/}
                     <div className="mt-4">
-                      <label className="font-medium text-[#191F38] text-[0.881]">
-                        Organization Name
-                      </label>
-                      <input
+                      <Label>Organization Name</Label>
+                      <Input
                         {...methods.register("organizationname", {
                           required: "Organization Name is required",
                         })}
                         placeholder="eg. XYZ Inc."
-                        className="w-full h-[2.516rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2  outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100 "
                       />
                       {methods.formState.errors.organizationname && (
                         <p className="text-red-500">
@@ -181,16 +177,12 @@ export default function Signup() {
                 {/* First / Last Name */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="font-medium text-[#191F38] text-[0.881]">
-                      First Name
-                    </label>
-                    <input
+                    <Label>First Name</Label>
+                    <Input
                       {...methods.register("firstName", {
                         required: "First name is required",
                       })}
                       placeholder="John"
-                      className="w-full h-[2.516rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2  outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100 "
                     />
                     {methods.formState.errors.firstName && (
                       <p className="text-red-500">
@@ -199,15 +191,11 @@ export default function Signup() {
                     )}
                   </div>
                   <div>
-                    <label className="font-medium text-[#191F38] text-[0.881]">
-                      Last Name
-                    </label>
-                    <input
+                    <Label>Last Name</Label>
+                    <Input
                       {...methods.register("lastName", {
                         required: "Last name is required",
                       })}
-                      className="w-full h-[2.516rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100 "
                     />
                     {methods.formState.errors.lastName && (
                       <p className="text-red-500">
@@ -218,10 +206,8 @@ export default function Signup() {
                 </div>
                 {/* Email */}
                 <div>
-                  <label className="font-medium text-[#191F38] text-[0.881]">
-                    Email
-                  </label>
-                  <input
+                  <Label>Email</Label>
+                  <Input
                     {...methods.register("email", {
                       required: "Email is required",
                       pattern: {
@@ -231,8 +217,6 @@ export default function Signup() {
                       },
                     })}
                     placeholder="eg. xyz@gmail.com "
-                    className="w-full h-[2.516rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 pb-3 outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100 "
                   />
                   {methods.formState.errors.email && (
                     <p className="text-red-500">
@@ -243,16 +227,12 @@ export default function Signup() {
 
                 {/* Username */}
                 <div>
-                  <label className="font-medium text-[#191F38] text-[0.881]">
-                    UserName
-                  </label>
-                  <input
+                  <Label>UserName</Label>
+                  <Input
                     {...methods.register("username", {
                       required: "Username is required",
                     })}
                     placeholder="John"
-                    className="w-full h-[2.516rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2  outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100 "
                   />
                   {methods.formState.errors.username && (
                     <p className="text-red-500">
@@ -263,24 +243,25 @@ export default function Signup() {
 
                 {/* Mobile number */}
                 <div>
-                  <label className="font-medium text-[#191F38] text-[0.881]">
-                    Mobail No.
-                  </label>
+                  <Label>Mobail No.</Label>
                   <div className="flex gap-3">
-                    <select
+                    <div
                       {...methods.register("code")}
-                      className="h-[2.516rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100 pr-1"
+                      className="h-[2.516rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 hover:bg-gray-100 flex flex-row gap-1 items-center"
                     >
-                      <option
-                        value="+880"
-                        className="font-medium text-[0.75rem] leading-[1.25rem] "
-                      >
+                      <Image
+                        width={18}
+                        height={18}
+                        alt="icon"
+                        src="/assets/bd.svg"
+                      />
+                      <span className="text-xs font-medium leading-5 tracking-tighter">
                         +880
-                      </option>
-                    </select>
+                      </span>
+                      <ChevronDown className="w-6 h-6 text-[#191F38] flex shrink-0 pr-2" />
+                    </div>
 
-                    <input
+                    <Input
                       {...methods.register("phone", {
                         required: "Phone number is required",
                         pattern: {
@@ -289,8 +270,6 @@ export default function Signup() {
                         },
                       })}
                       placeholder="1757778981"
-                      className="w-full h-[2.516rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100"
                     />
                   </div>
                   {methods.formState.errors.phone && (
@@ -302,10 +281,8 @@ export default function Signup() {
 
                 {/* Password */}
                 <div>
-                  <label className="font-medium text-[#191F38] text-[0.881]">
-                    Password
-                  </label>
-                  <input
+                  <Label>Password</Label>
+                  <Input
                     type="password"
                     {...methods.register("password", {
                       required: "Password is required",
@@ -315,8 +292,6 @@ export default function Signup() {
                       },
                     })}
                     placeholder="Must be of at least 8 characters"
-                    className="w-full h-[2.516rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100"
                   />
                   {methods.formState.errors.password && (
                     <p className="text-red-500">
@@ -327,10 +302,8 @@ export default function Signup() {
 
                 {/* Confirm Password */}
                 <div>
-                  <label className="font-medium text-[#191F38] text-[0.881]">
-                    Confirm Password
-                  </label>
-                  <input
+                  <Label>Confirm Password</Label>
+                  <Input
                     type="password"
                     {...methods.register("confirmPassword", {
                       required: "Confirm password is required",
@@ -338,8 +311,6 @@ export default function Signup() {
                         value === watch("password") || "Passwords don't match",
                     })}
                     placeholder="Re-enter your password"
-                    className="w-full h-[2.516rem] mt-1 border-[0.063rem] bg-[#FFFFFF] border-[#E5E9EB] rounded-lg px-2 py-2 outline-none placeholder:text-[0.9rem] 
-                    hover:bg-gray-100"
                   />
                   {methods.formState.errors.confirmPassword && (
                     <p className="text-red-500">
@@ -350,9 +321,7 @@ export default function Signup() {
 
                 {/* Upload picture */}
                 <div className="">
-                  <label className="font-medium text-[#191F38] text-[0.881]">
-                    Upload a picture
-                  </label>
+                  <Label>Upload a picture</Label>
                   <div className="flex flex-row items-center  gap-2 mb-3 mt-3">
                     <div className="w-12 h-12 flex justify-center items-center rounded-full bg-[#F2F9FE]">
                       <Image
@@ -377,7 +346,7 @@ export default function Signup() {
                     <div className="ml-auto">
                       <label
                         htmlFor="file-upload"
-                        className="bg-[#F2F9FE] text-[#4157FE] font-medium text-[0.75rem] border border-[#DBE9FF]  py-1 px-3 rounded-lg cursor-pointer hover:bg-blue-300 transition duration-300 shadow-sm shadow-[#1E293B1F]"
+                        className="bg-[#F2F9FE] text-[#4157FE] font-medium text-[0.75rem] border border-[#DBE9FF]  py-1 px-3 rounded-md cursor-pointer hover:bg-blue-300 transition duration-300 shadow-sm shadow-[#1E293B1F]"
                       >
                         Browse
                       </label>
@@ -422,13 +391,13 @@ export default function Signup() {
           )}
 
           {/* Submit Button */}
-          <button
-            className="w-full bg-[#4157FE] hover:bg-blue-800 text-white font-medium py-2 rounded-lg translation duration-300 mt-3"
+          <Button
             type="submit"
+            variant="private"
             onClick={methods.handleSubmit(onSubmit)}
           >
             Join Space
-          </button>
+          </Button>
 
           {/* Footer */}
           <p className=" flex text-center font-medium text-[0.875rem] mt-2 text-[#191F38]">
@@ -446,7 +415,7 @@ export default function Signup() {
       </div>
 
       {/* Right Visual Section */}
-      <div className="hidden lg:flex w-1/2  items-center justify-center px-8 py-8">
+      <div className="hidden lg:flex lg:flex-1  justify-start py-[1.375rem] px-6 ">
         <div>
           {/* Dashboard Image Placeholder */}
           <div className="rounded-xl overflow-hidden ">
@@ -454,7 +423,7 @@ export default function Signup() {
               src="/assets/dashboard.svg"
               alt="Dashboard Preview"
               className="rounded-xl"
-              width={688}
+              width={1000}
               height={946}
             />
           </div>

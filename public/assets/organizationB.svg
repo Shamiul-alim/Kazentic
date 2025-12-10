@@ -1,18 +1,9 @@
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-<svg fill="#4157FE" width="800px" height="800px" viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="0.00024000000000000003">
-
-<g id="SVGRepo_bgCarrier" stroke-width="0"/>
-
-<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-<g id="SVGRepo_iconCarrier">
-
-<path d="M7.25 12a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM6.5 9.25a.75.75 0 01.75-.75h.5a.75.75 0 010 1.5h-.5a.75.75 0 01-.75-.75zM7.25 5a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM10 12.75a.75.75 0 01.75-.75h.5a.75.75 0 010 1.5h-.5a.75.75 0 01-.75-.75zm.75-4.25a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM10 5.75a.75.75 0 01.75-.75h.5a.75.75 0 010 1.5h-.5a.75.75 0 01-.75-.75zM14.25 12a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zm-.75-2.75a.75.75 0 01.75-.75h.5a.75.75 0 010 1.5h-.5a.75.75 0 01-.75-.75zM14.25 5a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5z"/>
-
-<path fill-rule="evenodd" d="M3 20a2 2 0 002 2h3.75a.75.75 0 00.75-.75V19h3v2.25c0 .414.336.75.75.75H17c.092 0 .183-.006.272-.018a.758.758 0 00.166.018H21.5a2 2 0 002-2v-7.625a2 2 0 00-.8-1.6l-1-.75a.75.75 0 10-.9 1.2l1 .75a.5.5 0 01.2.4V20a.5.5 0 01-.5.5h-2.563c.041-.16.063-.327.063-.5V3a2 2 0 00-2-2H5a2 2 0 00-2 2v17zm2 .5a.5.5 0 01-.5-.5V3a.5.5 0 01.5-.5h12a.5.5 0 01.5.5v17a.5.5 0 01-.5.5h-3v-2.25a.75.75 0 00-.75-.75h-4.5a.75.75 0 00-.75.75v2.25H5z"/>
-
-</g>
-
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.8337 18.3334H4.16699C2.50033 18.3334 1.66699 17.5001 1.66699 15.8334V9.16675C1.66699 7.50008 2.50033 6.66675 4.16699 6.66675H8.33366V15.8334C8.33366 17.5001 9.16699 18.3334 10.8337 18.3334Z" stroke="#4157FE" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.42531 3.33325C8.35865 3.58325 8.33366 3.85825 8.33366 4.16659V6.66659H4.16699V4.99992C4.16699 4.08325 4.91699 3.33325 5.83366 3.33325H8.42531Z" stroke="#4157FE" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.667 6.66675V10.8334" stroke="#4157FE" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15 6.66675V10.8334" stroke="#4157FE" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.167 14.1667H12.5003C12.042 14.1667 11.667 14.5417 11.667 15.0001V18.3334H15.0003V15.0001C15.0003 14.5417 14.6253 14.1667 14.167 14.1667Z" stroke="#4157FE" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5 10.8333V14.1666" stroke="#4157FE" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.33301 15.8334V4.16675C8.33301 2.50008 9.16634 1.66675 10.833 1.66675H15.833C17.4997 1.66675 18.333 2.50008 18.333 4.16675V15.8334C18.333 17.5001 17.4997 18.3334 15.833 18.3334H10.833C9.16634 18.3334 8.33301 17.5001 8.33301 15.8334Z" stroke="#4157FE" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
