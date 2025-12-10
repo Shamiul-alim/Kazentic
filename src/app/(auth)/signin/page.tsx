@@ -22,9 +22,9 @@ export default function Signin() {
   };
 
   return (
-    <div className="min-h-screen flex bg-[#FFFFFF]">
+    <div className="min-h-screen w-full flex bg-[#FFFFFF]">
       {/*left section*/}
-      <div className="lg:w-1/2 flex flex-col justify-start px-8 lg:px-8 py-8 w-full">
+      <div className="flex-1 flex flex-col justify-start pl-6 pr-6 lg:pr-0 py-[1.375rem] w-full lg:max-w-[1000px] xl:max-w-[1200px] 2xl:max-w-[1400px] ">
         {/* Logo */}
         <div className="items-center cursor-pointer">
           <Image
@@ -45,11 +45,11 @@ export default function Signin() {
           </p>
 
           {/*Form*/}
-          <form onSubmit={handleSubmit(onSubmit)} className="mt-14 space-y-3">
+          <form onSubmit={handleSubmit(onSubmit)} className="mt-16 space-y-3">
             {/*Email*/}
             <div>
               <Label>
-                <span className="text-red-500">*</span>Email
+                <span className="text-red-500 mr-1">*</span>Email
               </Label>
               <Input
                 type="email"
@@ -63,14 +63,14 @@ export default function Signin() {
                 })}
               />
               {errors.email?.message && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-red-500 text-sm font-medium tracking-tighter mt-1">
                   {String(errors.email.message)}
                 </p>
               )}
             </div>
 
             {/*Password*/}
-            <div>
+            <div className="pt-2">
               <Label>Password</Label>
               <Input
                 type="password"
@@ -84,7 +84,7 @@ export default function Signin() {
                 })}
               />
               {errors.password && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-red-500 text-sm font-medium tracking-tighter mt-1">
                   {String(errors.password.message)}
                 </p>
               )}
@@ -129,15 +129,15 @@ export default function Signin() {
       </div>
 
       {/* Right Visual Section */}
-      <div className="hidden lg:flex w-1/2  items-center justify-center px-8 mt-8">
+      <div className="hidden lg:flex lg:flex-1  justify-start py-[1.375rem] px-6 ">
         <div>
           {/* Dashboard Image Placeholder */}
           <div className=" rounded-xl overflow-hidden ">
             <Image
               src="/assets/dashboard.svg"
               alt="Dashboard Preview"
-              className="rounded-xl"
-              width={688}
+              className="rounded-xl "
+              width={1000}
               height={946}
             />
           </div>
