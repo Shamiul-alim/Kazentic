@@ -108,12 +108,14 @@ export default function EmailSection() {
           className="ml-auto mr-[0.4rem] shrink-0"
         />
       </div>
-      <div className=" rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] sm:m-[0.9rem] md:m-[1.25rem] flex flex-row items-center justify-between pl-3 pr-3">
-        <div className="flex flex-row h-[2.8rem] md:h-[3.25rem]  py-[0.688rem]  border-r border-[#EBEBEB] space-x-2  ">
+      <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-2.5 md:m-3 lg:mt-4 lg:mx-4 lg:mb-2.5 pr-4 flex flex-row items-center justify-between ">
+        <div className="flex flex-row  border-r border-[#EBEBEB] items-center space-x-2  pl-4 h-[3.25rem] w-[13.75rem]">
           <div className=" rounded-full bg-[#4157FE] w-[1.5rem] h-[1.5rem] md:h-[1.875rem] md:w-[1.875rem] flex justify-center items-center">
-            <span className="text-[0.8rem  font-normal text-[#FFFFFF]">A</span>
+            <span className="text-[0.8rem] leading-3  font-normal text-[#FFFFFF]">
+              A
+            </span>
           </div>
-          <div className="flex flex-col justify-center space-y-1.5 pr-2">
+          <div className="flex flex-col pb-1 space-y-1 ">
             <span className="text-[#191F38]  text-xs md:text-sm font-medium leading-[0.635rem] tracking-tighter">
               Alif Hassan
             </span>
@@ -180,7 +182,7 @@ export default function EmailSection() {
       <div className="flex flex-row">
         {/* For Mobile Screen */}
         {isMobile && (
-          <div className="flex flex-col ml-2 sm:ml-3 md:ml-5  border border-[#EBEBEB] h-fit rounded-lg">
+          <div className="flex flex-col ml-2.5 md:ml-3 border border-[#EBEBEB] h-fit rounded-lg w-[3.25rem]">
             {tabsData.map((tab) => (
               <button
                 onClick={() => handleTabClick(tab.name)}

@@ -58,7 +58,7 @@ export default function SideMenu({
 
   const renderSection = (section: SectionItem) => {
     const isActive = activeSection === section.name;
-    const sectionClass = `flex flex-row w-full text-left text-[0.875rem] font-medium text-[#191F38] rounded-md  py-2 transition duration-200 space-x-2 pl-2  ${
+    const sectionClass = `flex flex-row w-full  rounded-md  py-2 transition duration-200 space-x-2 pl-2  ${
       isActive
         ? "bg-[#D6E9FF] text-[#4157FE] hover:bg-[#D6E9FF] "
         : "hover:bg-gray-100"
@@ -71,7 +71,9 @@ export default function SideMenu({
           className={sectionClass}
         >
           <Image src={section.icon} alt="icon" width={18} height={18} />
-          <span>{section.name}</span>
+          <span className="text-left text-[0.875rem] font-medium text-[#191F38]">
+            {section.name}
+          </span>
           <div className="flex w-auto pr-5">
             {section.hasDropdown && (
               <ChevronDown
@@ -129,10 +131,12 @@ export default function SideMenu({
       {/* Carbon Stream Section */}
       <div className="flex items-center mb-2 border-b border-[#EBEBEB] p-3 h-[2.188rem] rounded-tl-md">
         <div className="flex items-center gap-2">
-          <button className="w-[1.5rem] h-[1.5rem] bg-gradient-to-b from-[#FF9F00] to-[#FDBF00] rounded-lg flex justify-center text-center ">
+          <button className="w-[1.5rem] h-[1.5rem] bg-[#FDBF00] rounded-lg flex justify-center text-center ">
             <span className="text-[#FFFFFF] text-[1rem] font-medium">C</span>
           </button>
-          <span className="font-semibold text-[0.875rem]">Carbon Stream</span>
+          <span className="font-semibold text-sm leading-5 tracking-tighter text-[#191F38] ">
+            Carbon Stream
+          </span>
         </div>
         <Image
           alt="icon"
@@ -145,7 +149,7 @@ export default function SideMenu({
       </div>
 
       {/* Sidebar Menu */}
-      <div className="space-y-1 pl-2 pr-2 mb-10">
+      <div className="space-y-2 pl-3 pr-3  mb-10 pt-0.5">
         {sectionsData.map((section) => renderSection(section))}
       </div>
 
