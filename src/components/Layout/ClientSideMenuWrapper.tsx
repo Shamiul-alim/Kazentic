@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import SideMenu from "@/components/Sidemenu/SideMenu";
+import { useSidebar } from "@/context/SidebarContext";
 
 export default function ClientSideMenuWrapper() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const { isSidebarOpen, setIsSidebarOpen } = useSidebar();
 
   return (
     <SideMenu
