@@ -52,12 +52,12 @@ export default function AllMail({ emails }: Props) {
   };
 
   return (
-    <div className="w-full bg-[#FFFFFF] flex flex-col">
+    <div className="w-full  bg-[#FFFFFF] flex flex-col">
       {/* Inbox Title Section */}
-      <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-3 relative">
-        <div className="flex felx-row items-center space-x-1 sm:space-x-2 md:space-x-3 lg:space-x-6  lg:justify-normal w-full lg:w-auto">
+      <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] mx-2.5 md:mx-3  lg:mx-4 flex flex-row items-center justify-between pl-4 lg:pl-6 pr-4 relative">
+        <div className="flex felx-row items-center space-x-1 sm:space-x-2 md:space-x-4  lg:justify-normal w-full lg:w-auto">
           <button
-            className="flex justify-center items-center gap-2"
+            className="flex justify-center items-center gap-1"
             ref={buttonRef}
             onClick={() => {
               setIsDropdownOpen(!isDropdownOpen);
@@ -80,7 +80,7 @@ export default function AllMail({ emails }: Props) {
             <ChevronDown className="w-5 h-5 text-[#697588] opacity-80 flex shrink-0" />
           </button>
           <div
-            className={`flex-row items-center space-x-4  ${
+            className={`flex-row items-center space-x-4   ${
               selectedEmails.length > 0 ? "flex" : "hidden"
             }`}
           >
@@ -132,7 +132,7 @@ export default function AllMail({ emails }: Props) {
           </div>
 
           <div
-            className={`flex flex-row  items-center space-x-1 sm:space-x-2 md:space-x-3 lg:space-x-6  ${
+            className={`flex flex-row  items-center space-x-3  lg:space-x-6 ${
               selectedEmails.length > 0 ? "hidden" : "flex"
             }`}
           >
@@ -148,17 +148,17 @@ export default function AllMail({ emails }: Props) {
           </div>
         </div>
 
-        <div className="hidden lg:block justify-center items-center gap-8">
+        <div className="hidden lg:block justify-center items-center gap-8 ml-auto pr-7">
           <div className="space-x-3 text-[0.875rem] font-semibold tracking-tighter text-[#697588]">
             {tabs.map((tab) => (
-              <button key={tab} className="p-2 rounded-lg">
+              <button key={tab} className="p-2 rounded-lg ">
                 {tab}
               </button>
             ))}
           </div>
         </div>
         <div
-          className="text-[#697588] space-x-4 font-medium text-[0.75rem] pr-3 hidden lg:block"
+          className="text-[#697588] space-x-4 font-medium text-[0.75rem] hidden lg:block"
           onClick={() => setIsSortMenuOpen((prev) => !prev)}
         >
           <span className="font-semibold">&#10229;</span>
@@ -172,7 +172,7 @@ export default function AllMail({ emails }: Props) {
           className={`
             ${isDropdownOpen ? "flex" : "hidden"}
             w-[10.5rem] h-[12.5rem] rounded-md border border-[#EBEBEB] 
-            bg-[#FFFFFF] flex-col absolute top-[2.6rem] left-0  z-50  shadow-md shadow-[#0000000D]
+            bg-[#FFFFFF]  flex-col absolute top-[2.6rem] left-0  z-50  shadow-md shadow-[#0000000D]
           `}
         >
           <div
@@ -235,7 +235,7 @@ export default function AllMail({ emails }: Props) {
           </div>
         </div>
         <div
-          className={`w-[11.3rem] h-20 shadow-md bg-[#FFFFFF] border border-[#EBEBEB] rounded-md shadow-[#0000000D] flex-col absolute top-[2.6rem] left-[9rem] z-50 cursor-pointer
+          className={`w-[11.3rem] h-20 shadow-md bg-[#FFFFFF] rounded-md shadow-[#0000000D] flex-col absolute top-[2.6rem] left-[4rem] sm:left-[8rem] md:left-[10rem] z-50 cursor-pointer border border-[#EBEBEB]
           ${isMoreMenuOpen ? "flex" : "hidden"}`}
         >
           <div className="h-10 w-full flex flex-row pl-[1.25rem] justify-start items-center gap-3">
@@ -263,80 +263,73 @@ export default function AllMail({ emails }: Props) {
         </div>
         <div
           className={`
-            w-[8.313rem] h-40 bg-[#FFFFFF] shadow-md border border-[#EBEBEB] shadow-[#0000000D] rounded-md
+            w-[8.313rem] h-40 bg-[#FFFFFF] shadow-md shadow-[#0000000D] rounded-md  border border-[#EBEBEB]
             absolute top-[2.6rem] right-3 z-50
             ${isSortMenuOpen ? "flex flex-col" : "hidden"}
           `}
         >
-          <div className="h-10 w-full pl-[1.25rem] bg-[#F2F9FE] justify-start items-center rounded-t-md">
-            <span className="font-medium text-sm tracking-tight text-[#4157FE]">
-              Newest First
-            </span>
-          </div>
-          <div className="h-10 w-full pl-[1.25rem]  justify-start items-center">
-            <span className="font-medium text-sm tracking-tight text-[#697588]">
-              Oldest First
-            </span>
-          </div>
-          <div className="h-10 w-full pl-[1.25rem]  justify-start items-center">
-            <span className="font-medium text-sm tracking-tight text-[#697588]">
-              Largest First
-            </span>
-          </div>
-          <div className="h-10 w-full pl-[1.25rem]  justify-start items-center">
-            <span className="font-medium text-sm tracking-tight text-[#697588]">
-              Smallest First
-            </span>
-          </div>
+          <span className="bg-[#F2F9FE] font-medium h-10 text-sm tracking-tight flex justify-center items-center text-[#4157FE]">
+            Newest First
+          </span>
+
+          <span className="font-medium h-10  flex justify-center items-center text-sm tracking-tight text-[#697588]">
+            Oldest First
+          </span>
+
+          <span className="font-medium h-10 flex justify-center items-center text-sm tracking-tight text-[#697588]">
+            Largest First
+          </span>
+
+          <span className="font-medium h-10 flex justify-center items-center text-sm tracking-tight text-[#697588]">
+            Smallest First
+          </span>
         </div>
       </div>
 
       {/* Emails List */}
-      <div className="space-y-3">
+      <div className=" my-2.5 sm:my-3 lg:my-2.5  mx-2.5 md:mx-3  lg:mx-4">
         {emails.map((email) => (
           <Link href={`/email/${email.id}`} key={email.id}>
-            <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] m-[0.6rem] md:ml-[1.25rem] md:mr-[1.25rem] mt-0 flex flex-row items-center justify-between pl-3 pr-4 cursor-pointer">
-              <div className="flex items-center gap-2 md:gap-3 w-full md:w-auto ">
-                <Image
-                  src={
-                    selectedEmails.includes(email.id)
-                      ? "/assets/checked.svg"
-                      : email.icon
-                  }
-                  alt="icon"
-                  width={20}
-                  height={20}
-                  className={`w-4 h-4 md:w-5 md:h-5 ${
-                    selectedEmails.includes(email.id) ? "mr-2" : ""
-                  } `}
-                />
-                <div className="w-4 h-4 min-w-[20px] rounded-full flex items-center justify-center flex-shrink-0">
-                  <Image
-                    src={`${
-                      email.isStarred
-                        ? "/assets/starActive.svg"
-                        : "/assets/star.svg"
-                    }`}
-                    alt="icon"
-                    width={20}
-                    height={20}
-                    className="w-4 h-4"
-                  />
+            <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] flex flex-row items-center justify-between pl-4 lg:pl-6 pr-4 cursor-pointer mb-2.5 sm:mb-3 lg:mb-2.5">
+              <div className="flex items-center gap-4">
+                <div className="gap-2  md:gap-4 lg:gap-6 flex flex-row items-center">
+                  <div className="flex-shrink-0">
+                    <Image
+                      src={
+                        selectedEmails.includes(email.id)
+                          ? "/assets/checked.svg"
+                          : email.icon
+                      }
+                      alt="icon"
+                      width={20}
+                      height={20}
+                      className={`${
+                        selectedEmails.includes(email.id) ? "mr-2" : ""
+                      } `}
+                    />
+                  </div>
+                  <div className=" flex flex-row items-center flex-shrink-0 ">
+                    <Image
+                      src={`${
+                        email.isStarred
+                          ? "/assets/starActive.svg"
+                          : "/assets/star.svg"
+                      }`}
+                      alt="icon"
+                      width={20}
+                      height={20}
+                      className=""
+                    />
+                  </div>
                 </div>
-                <div className="flex  flex-col text-center  justify-center items-center w-full md:w-auto">
-                  <span className="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] tracking-normal text-[#191F38]">
+                <div className="flex flex-col md:flex-row  items-center text-center justify-center mr-2">
+                  <span className="text-[0.8rem] sm:text-[0.875rem] font-medium tracking-normal leading-4 flex items-center text-center text-[#191F38]">
                     {email.sender}
                   </span>
-                  <span className="text-[0.8rem] sm:text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38] sm:hidden">
-                    {limitChars(email.subject, 10)}🎉
+                  <span className="text-[0.8rem] sm:text-[0.875rem] font-medium text-[#191F38] ml-0 md:ml-10 lg:ml-28 xl:ml-38">
+                    {limitChars(email.subject, 20)}🎉
                   </span>
                 </div>
-              </div>
-
-              <div className="hidden sm:block  flex-col items-center space-y-1">
-                <span className="text-[0.875rem] font-medium leading-[1.5rem] text-[#191F38]">
-                  {limitChars(email.subject, 18)}🎉
-                </span>
               </div>
 
               <div className="hidden sm:block">
