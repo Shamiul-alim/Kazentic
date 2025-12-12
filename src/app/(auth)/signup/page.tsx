@@ -80,7 +80,7 @@ export default function Signup() {
               <button
                 key={t}
                 onClick={() => handleTabSwitch(t)}
-                className={`px-3 py-1 flex items-center gap-[0.5rem] rounded-md border transition shadow-sm shadow-[#0000000D] 
+                className={`px-3 py-1 flex items-center  gap-[0.5rem] rounded-md border transition shadow-sm shadow-[#0000000D] 
                           ${
                             activeTab === t
                               ? "border-[#4157FE26]  bg-[#F2F9FE]"
