@@ -8,13 +8,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <div className="flex flex-col h-screen">
       <SidebarProvider>
         <Topbar />
-
         <div className="flex flex-grow">
           <Sidebar />
-          <div className="bg-[#111953]">
+          <div className="bg-[#111953] relative">
             <ClientSideMenuWrapper />
           </div>
-
           <div className="w-full bg-[#111953]">{children}</div>
         </div>
       </SidebarProvider>

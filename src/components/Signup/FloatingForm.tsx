@@ -24,7 +24,7 @@ const FloatingForm: React.FC<FloatingFormProps> = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 flex  justify-center  items-center bg-gray-500 bg-opacity-50 z-50">
-      <div className="bg-[#FFFFFF] p-6 rounded-lg w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] xl:w-[40%] h-[100vh] overflow-y-auto relative hide-scrollbar">
+      <div className="bg-[#FFFFFF] p-6 rounded-lg w-[90%] sm:w-[80%] md:w-[60%] lg:w-[50%] xl:w-[40%] h-[96vh] overflow-y-auto relative hide-scrollbar">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 w-6 h-6 rounded-full bg-blue-100  text-blue-600 text-[1.6rem] font-normal flex justify-center text-center items-center pb-1"

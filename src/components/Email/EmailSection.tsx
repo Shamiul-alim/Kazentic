@@ -86,12 +86,16 @@ export default function EmailSection() {
 
   return (
     <div
-      className={`w-full bg-[#FFFFFF] flex flex-col ${
+      className={`w-full  bg-[#FFFFFF] flex flex-col ${
         isMobile && isSidebarOpen ? "rounded-tl-lg " : ""
-      }`}
+      } `}
     >
-      <div className="flex  items-center bg-[#FFFFFF]  border-b border-[#EBEBEB] p-2 sm:pl-3 md:pl-5 h-[2.188rem]  mb-1 ">
-        <span className="text-[0.7rem] sm:texxt-[0.875rem] text-[#8F97A2] font-medium">
+      <div
+        className={`flex  items-center bg-[#FFFFFF]  border-b border-[#EBEBEB] p-2 sm:pl-3 md:pl-5 h-[2.188rem]  mb-1 ${
+          isMobile && isSidebarOpen ? "rounded-tl-lg " : ""
+        }`}
+      >
+        <span className="text-[0.7rem] sm:texxt-[0.875rem] text-[#8F97A2] font-medium ">
           Menu
         </span>
         <span className="text-[0.7rem] sm:text-[0.875rem] text-[#8F97A2] font-medium ml-3">

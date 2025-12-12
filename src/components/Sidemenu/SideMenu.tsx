@@ -127,7 +127,7 @@ export default function SideMenu({
   }
 
   return (
-    <div className="w-[12.5rem] h-full  bg-[#FFFFFF] text-[#191F38] border-r border-[#EBEBEB] flex flex-col rounded-tl-md md:relative absolute z-50 ">
+    <div className="w-[12.5rem] bg-[#FFFFFF] text-[#191F38] border-r border-[#EBEBEB] flex flex-col h-full  rounded-tl-md md:relative absolute z-50 ">
       {/* Carbon Stream Section */}
       <div className="flex items-center mb-2 border-b border-[#EBEBEB] p-3 h-[2.188rem] rounded-tl-md">
         <div className="flex items-center gap-2">
