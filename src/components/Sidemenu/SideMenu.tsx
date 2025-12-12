@@ -58,7 +58,7 @@ export default function SideMenu({
 
   const renderSection = (section: SectionItem) => {
     const isActive = activeSection === section.name;
-    const sectionClass = `flex flex-row w-full  rounded-md  py-2 transition duration-200 space-x-2 pl-2  ${
+    const sectionClass = `flex flex-row w-full  rounded-md  py-2 transition duration-200 space-x-2 pl-1 md:pl-2  ${
       isActive
         ? "bg-[#D6E9FF] text-[#4157FE] hover:bg-[#D6E9FF] "
         : "hover:bg-gray-100"
