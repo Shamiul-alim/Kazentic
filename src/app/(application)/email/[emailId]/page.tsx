@@ -296,7 +296,7 @@ export default function EmailDetail() {
             ))}
           </div>
           <div
-            className={`w-[21.6rem] h-[14rem] rounded-md bg-[#FFFFFF] shadow-md shadow-[#0000000D] absolute right-[12.5rem] top-[18.6rem] border border-[#EBEBEB] ${
+            className={`w-[21.6rem] h-[14rem] rounded-md bg-[#FFFFFF] shadow-md shadow-[#0000000D] absolute right-[0.5rem] sm:right-[35rem] lg:right-[60rem] top-[18.5rem] border border-[#EBEBEB] ${
               isinfoSection ? "flex flex-row" : "hidden"
             }`}
           >
