@@ -28,16 +28,65 @@ export default function Signup() {
   const [activeTab, setActiveTab] = useState("Personal");
   const [isFormVisible, setIsFormVisible] = useState(false);
   const router = useRouter();
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
-    if (
-      !methods.formState.errors == null ||
-      Object.keys(methods.formState.errors).length === 0
-    ) {
-      router.push("/email");
+  const getRoleFromTab = (tab: string) => {
+    if (tab === "Team") return "team";
+    if (tab === "Organization") return "organization";
+    return "personal";
+  };
+
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    try {
+      const payload = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        username: data.username,
+        phone: data.phone,
+        email: data.email,
+        password: data.password,
+
+        teamName: activeTab === "Team" ? data.teamname : null,
+        organizationName:
+          activeTab === "Organization" ? data.organizationname : null,
+
+        role: getRoleFromTab(activeTab),
+
+        picture: data.picture?.[0]?.name || null,
+      };
+
+      console.log("Payload →", payload);
+
+      const res = await fetch(`${API_URL}/users`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.message || "Signup failed");
+      }
+
+      router.push("/signin");
+    } catch (error: any) {
+      console.error("Signup error:", error);
+      alert(error.message);
     }
   };
+
+  // const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  //   console.log(data);
+  //   if (
+  //     !methods.formState.errors == null ||
+  //     Object.keys(methods.formState.errors).length === 0
+  //   ) {
+  //     router.push("/email");
+  //   }
+  // };
   const handleTabSwitch = (tab: string) => {
     setActiveTab(tab);
     methods.clearErrors();
@@ -107,7 +156,7 @@ export default function Signup() {
           </div>
 
           {/* Form */}
-          <div className="mt-4 transition-all duration-500 ease-in-out overflow-x-hidden overflow-y-auto hide-scrollbar max-h-[40.5rem]">
+          <div className="mt-4 transition-all duration-500 ease-in-out overflow-x-hidden overflow-y-auto hide-scrollbar max-h-[48rem]">
             <FormProvider {...methods}>
               <form
                 className="mt-2 space-y-6"
@@ -366,51 +415,48 @@ export default function Signup() {
                     </p>
                   )}
                 </div>
+                <div className="space-y-2">
+                  {/* Checkbox */}
+                  <label className="flex items-center gap-2 text-gray-800 text-[0.875rem] font-medium tracking-tighter">
+                    <input
+                      type="checkbox"
+                      {...methods.register("terms", {
+                        required:
+                          "You must agree to the terms and privacy policy",
+                      })}
+                      className="w-4 h-4 cursor-pointer outline-none"
+                    />
+                    I agree to the{" "}
+                    <span className="text-[#4157FE] cursor-pointer">
+                      Terms & Privacy
+                    </span>
+                  </label>
+                  {methods.formState.errors.terms && (
+                    <p className="text-red-500">
+                      {String(methods.formState.errors.terms.message)}
+                    </p>
+                  )}
+
+                  {/* Submit Button */}
+                  <Button type="submit" variant="private">
+                    Join Space
+                  </Button>
+                  {/* Footer */}
+                  <p className=" flex text-center font-medium text-[0.875rem] text-[#191F38]">
+                    Already have an account?{" "}
+                    <span
+                      className="text-[#4157FE] cursor-pointer"
+                      onClick={() => {
+                        router.push("/signin");
+                      }}
+                    >
+                      Sign in
+                    </span>
+                  </p>
+                </div>
               </form>
             </FormProvider>
           </div>
-
-          {/* Checkbox */}
-          <label className="flex items-center gap-2 mt-2 text-gray-800 text-[0.875rem] font-medium tracking-tighter">
-            <input
-              type="checkbox"
-              {...methods.register("terms", {
-                required: "You must agree to the terms and privacy policy",
-              })}
-              className="w-4 h-4 cursor-pointer outline-none"
-            />
-            I agree to the{" "}
-            <span className="text-[#4157FE] cursor-pointer">
-              Terms & Privacy
-            </span>
-          </label>
-          {methods.formState.errors.terms && (
-            <p className="text-red-500">
-              {String(methods.formState.errors.terms.message)}
-            </p>
-          )}
-
-          {/* Submit Button */}
-          <Button
-            type="submit"
-            variant="private"
-            onClick={methods.handleSubmit(onSubmit)}
-          >
-            Join Space
-          </Button>
-
-          {/* Footer */}
-          <p className=" flex text-center font-medium text-[0.875rem] mt-2 text-[#191F38]">
-            Already have an account?{" "}
-            <span
-              className="text-[#4157FE] cursor-pointer"
-              onClick={() => {
-                router.push("/signin");
-              }}
-            >
-              Sign in
-            </span>
-          </p>
         </div>
       </div>
 

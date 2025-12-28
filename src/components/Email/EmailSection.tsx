@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import tabsData from "@/data/tabsData.json";
-import InboxData from "@/data/emailData.json";
 import Inbox from "./Tab Content/Inbox";
 import Sent from "./Tab Content/Sent";
 import Draft from "./Tab Content/Draft";
@@ -37,42 +36,24 @@ export default function EmailSection() {
     }, 300);
   };
 
-  const filterEmails = () => {
-    switch (activeTab) {
-      case "Inbox":
-        return InboxData;
-      case "All Mail":
-        return InboxData;
-      case "Starred":
-        return InboxData.filter((email) => email.isStarred);
-      case "Sent":
-        return InboxData.filter((email) => email.isSent);
-      case "Draft":
-        return InboxData.filter((email) => email.isDraft);
-      case "Spam":
-        return InboxData.filter((email) => email.isSpam);
-      case "Trash":
-        return InboxData.filter((email) => email.isTrash);
-      default:
-        return InboxData;
-    }
-  };
   const renderTabContent = () => {
     switch (activeTab) {
       case "Inbox":
-        return <Inbox emails={filterEmails()} />;
+        return <Inbox />;
       case "Sent":
-        return <Sent emails={filterEmails()} />;
-      case "All Mail":
-        return <AllMail emails={filterEmails()} />;
-      case "Draft":
-        return <Draft emails={filterEmails()} />;
-      case "Starred":
-        return <Starred emails={filterEmails()} />;
-      case "Spam":
-        return <Spam emails={filterEmails()} />;
-      case "Trash":
-        return <Trash emails={filterEmails()} />;
+        return <Sent />;
+      // case "All Mail":
+      //   return <AllMail />;
+      // case "Draft":
+      //   return <Draft />;
+      // case "Starred":
+      //   return <Starred />;
+      // case "Spam":
+      //   return <Spam />;
+      // case "Trash":
+      //   return <Trash />;
+      // default:
+      //   return <Inbox />;
     }
   };
 

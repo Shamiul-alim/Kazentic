@@ -16,9 +16,35 @@ export default function Signin() {
   } = useForm<FieldValues>();
   const router = useRouter();
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
-    router.push("/email");
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    try {
+      const res = await fetch("http://localhost:5000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: data.email,
+          password: data.password,
+        }),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.message || "Login failed");
+      }
+
+      // Save tokens in localStorage (or cookies)
+      localStorage.setItem("access_token", result.access_token);
+      localStorage.setItem("refresh_token", result.refresh_token);
+      localStorage.setItem("role", result.role);
+
+      // Redirect after login
+      router.push("/email");
+    } catch (err: any) {
+      alert(err.message);
+    }
   };
 
   return (

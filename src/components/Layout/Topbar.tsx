@@ -1,7 +1,40 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { jwtDecode } from "jwt-decode";
 
 export default function Topbar() {
+  const [userName, setUserName] = useState<string>("");
+  const [userEmail, setUserEmail] = useState<string>("");
+  useEffect(() => {
+    const token = localStorage.getItem("access_token");
+    if (token) {
+      try {
+        const decoded: any = jwtDecode(token);
+        const userId = decoded.user_id; //
+        const fetchUserDetails = async () => {
+          try {
+            const response = await fetch(
+              `http://localhost:5000/users/${userId}`
+            );
+            if (response.ok) {
+              const userData = await response.json();
+              setUserName(userData.lastName || "User");
+              setUserEmail(userData.email || "user@example.com");
+            } else {
+              console.error("Failed to fetch user details");
+            }
+          } catch (error) {
+            console.error("Error fetching user details:", error);
+          }
+        };
+
+        fetchUserDetails();
+      } catch (err) {
+        console.error("Invalid token", err);
+      }
+    }
+  }, []);
   return (
     <div className="relative flex w-full justify-between items-center h-[2.375rem] bg-gradient-to-r from-[#111953]  to-[#4157FE] text-[#FFFFFF] pr-3">
       <div className="flex items-center z-10">
@@ -64,9 +97,11 @@ export default function Topbar() {
             />
           </div>
           <div className="hidden lg:flex lg:flex-col leading-3 gap-0.5 text-[#FFFFFF]">
-            <div className="font-bold text-[0.813rem]">Shihab</div>
+            <div className="font-bold text-[0.813rem]">
+              {userName || "User"}
+            </div>
             <div className="text-[0.75rem] text-opacity-70">
-              shihab&#64;kazentic.com
+              {userEmail || "user@example.com"}
             </div>
           </div>
           <Image src="/assets/moreB.svg" alt="icon" width={20} height={20} />

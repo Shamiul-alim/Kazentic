@@ -5,22 +5,21 @@ import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-type emailInboxData = {
+type Email = {
   id: number;
-  icon: string;
-  sender: string;
+  from: string;
   subject: string;
-  timestamp: string;
+  date: string;
+  text: string;
+  isDraft: boolean;
   isStarred: boolean;
-  description?: string;
-  senderEmail?: string;
-  attachments?: { fileName: string; fileSize: string }[];
+  icon: string;
 };
 type Props = {
-  emails: emailInboxData[];
+  emails: Email[];
 };
 
-export default function Spam({ emails }: Props) {
+export default function Spam() {
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
   const [selectedEmails, setSelectedEmails] = React.useState<number[]>([]);
   const [isMoreMenuOpen, setIsMoreMenuOpen] = React.useState(false);
@@ -32,6 +31,7 @@ export default function Spam({ emails }: Props) {
     if (text.length <= limit) return text;
     return text.substring(0, limit) + " ...";
   };
+  const [emails, setEmails] = React.useState<Email[]>([]);
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -45,6 +45,15 @@ export default function Spam({ emails }: Props) {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
+    const fetchEmails = async () => {
+      const response = await fetch("http://localhost:5000/emails/spam");
+      const data = await response.json();
+      if (data.success) {
+        setEmails(data.emails);
+      }
+    };
+
+    fetchEmails();
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
   const handleSelectAll = () => {
@@ -324,7 +333,7 @@ export default function Spam({ emails }: Props) {
                 </div>
                 <div className="flex flex-col md:flex-row  items-center text-center justify-center mr-2">
                   <span className="text-[0.8rem] sm:text-[0.875rem] font-medium tracking-normal leading-4 flex items-center text-center text-[#191F38]">
-                    {email.sender}
+                    {email.from}
                   </span>
                   <span className="text-[0.8rem] sm:text-[0.875rem] font-medium text-[#191F38] ml-0 md:ml-10 lg:ml-28 xl:ml-38">
                     {limitChars(email.subject, 20)}🎉
@@ -334,7 +343,7 @@ export default function Spam({ emails }: Props) {
 
               <div className="hidden sm:block">
                 <span className="text-[0.875rem] tracking-tighter text-[#697588] font-medium ">
-                  {email.timestamp}
+                  {new Date(email.date).toLocaleString()}
                 </span>
               </div>
             </div>
