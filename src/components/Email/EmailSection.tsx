@@ -11,30 +11,67 @@ import AllMail from "./Tab Content/AllMail";
 import MessageForm from "./MessageForm";
 import Image from "next/image";
 import { useSidebar } from "@/context/SidebarContext";
-type EmailSectionProps = {
-  isSidebarOpen: boolean;
-};
+import { jwtDecode } from "jwt-decode";
 
 export default function EmailSection() {
   const [activeTab, setActiveTab] = useState("Inbox");
   const [isMessageFormOpen, setMessageFormOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const { isSidebarOpen } = useSidebar();
+  const [userData, setUserData] = useState({ firstName: "", email: "" });
 
+  const token = localStorage.getItem("access_token");
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1173);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
+
+    const token = localStorage.getItem("access_token");
+    if (token) {
+      try {
+        const decoded: any = jwtDecode(token);
+        const userId = decoded.user_id;
+
+        const fetchUser = async () => {
+          try {
+            const response = await fetch(
+              `http://localhost:5000/users/${userId}`,
+              {
+                headers: {
+                  method: "GET",
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+            if (response.ok) {
+              const data = await response.json();
+              setUserData({
+                firstName: data.firstName || "User",
+                email: data.email || "",
+              });
+            }
+          } catch (error) {
+            console.error("Error fetching user for EmailSection:", error);
+          }
+        };
+        fetchUser();
+      } catch (err) {
+        console.error("Invalid token in EmailSection", err);
+      }
+    }
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
   const handleTabClick = (tabName: string) => {
     setTimeout(() => {
       setActiveTab(tabName);
     }, 300);
   };
+  const firstLetter = userData.firstName
+    ? userData.firstName.charAt(0).toUpperCase()
+    : "U";
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -97,15 +134,15 @@ export default function EmailSection() {
         <div className="flex flex-row  border-r border-[#EBEBEB] items-center space-x-2  pl-4 h-[3.25rem] w-[13.75rem]">
           <div className=" rounded-full bg-[#4157FE] w-[1.5rem] h-[1.5rem] md:h-[1.875rem] md:w-[1.875rem] flex justify-center items-center">
             <span className="text-[0.8rem] leading-3  font-normal text-[#FFFFFF]">
-              A
+              {firstLetter}
             </span>
           </div>
           <div className="flex flex-col pb-1 space-y-1 ">
             <span className="text-[#191F38]  text-xs md:text-sm font-medium leading-[0.635rem] tracking-tighter">
-              Alif Hassan
+              {userData.firstName || "Loading..."}
             </span>
             <span className="text-[#00000080] text-opacity-50 font-medium text-[0.7rem] md:text-[0.75rem] leading-[0.625rem] tracking-tighter">
-              alif@deepchainlabs.com
+              {userData.email || "loading@example.com"}
             </span>
           </div>
         </div>
