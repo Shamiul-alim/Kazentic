@@ -47,8 +47,21 @@ export default function Sent() {
     document.addEventListener("mousedown", handleClickOutside);
 
     const fetchEmails = async () => {
+      const token = localStorage.getItem("access_token");
       try {
-        const response = await fetch("http://localhost:5000/emails/sent");
+        const response = await fetch("http://localhost:5000/emails/sent", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (response.status === 401) {
+          console.error("Session expired");
+          localStorage.removeItem("access_token");
+          window.location.href = "/signin";
+          return;
+        }
         const data = await response.json();
         if (data.success) {
           setEmails(data.emails);

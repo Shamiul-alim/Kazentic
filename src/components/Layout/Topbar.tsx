@@ -1,17 +1,21 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { jwtDecode } from "jwt-decode";
+import { useRouter } from "next/navigation";
 
 export default function Topbar() {
   const [userName, setUserName] = useState<string>("");
   const [userEmail, setUserEmail] = useState<string>("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("access_token");
     if (token) {
       try {
         const decoded: any = jwtDecode(token);
-        const userId = decoded.user_id; //
+        const userId = decoded.user_id;
         const fetchUserDetails = async () => {
           try {
             const response = await fetch(
@@ -34,7 +38,24 @@ export default function Topbar() {
         console.error("Invalid token", err);
       }
     }
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+  const handleLogout = () => {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("role");
+    localStorage.removeItem("isSidebarOpen");
+    router.push("/signin");
+  };
   return (
     <div className="relative flex w-full justify-between items-center h-[2.375rem] bg-gradient-to-r from-[#111953]  to-[#4157FE] text-[#FFFFFF] pr-3">
       <div className="flex items-center z-10">
@@ -104,8 +125,45 @@ export default function Topbar() {
               {userEmail || "user@example.com"}
             </div>
           </div>
-          <Image src="/assets/moreB.svg" alt="icon" width={20} height={20} />
+          <Image
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            src="/assets/moreB.svg"
+            alt="icon"
+            width={20}
+            height={20}
+            className="cursor-pointer"
+          />
         </div>
+        {isDropdownOpen && (
+          <div className="absolute top-10 right-1 w-48 bg-white rounded-lg shadow-xl border border-gray-200 text-[#191F38] z-50">
+            <div className="px-4 py-2 border-b border-gray-100">
+              <p className="text-sm font-semibold text-gray-900 truncate">
+                {userName}
+              </p>
+              <p className="text-xs text-gray-500 truncate">{userEmail}</p>
+            </div>
+
+            <button
+              onClick={handleLogout}
+              className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 hover:rounded-b-lg flex items-center gap-2 transition-colors"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                />
+              </svg>
+              Log Out
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

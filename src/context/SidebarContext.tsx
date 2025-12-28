@@ -10,29 +10,33 @@ import {
 type SidebarContextType = {
   isSidebarOpen: boolean;
   setIsSidebarOpen: (open: boolean) => void;
+  isHydrated: boolean;
 };
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 
 export const SidebarProvider = ({ children }: { children: ReactNode }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const savedState = localStorage.getItem("isSidebarOpen");
-      if (savedState !== null) {
-        setIsSidebarOpen(JSON.parse(savedState));
-      }
+    const savedState = localStorage.getItem("isSidebarOpen");
+    if (savedState !== null) {
+      setIsSidebarOpen(JSON.parse(savedState));
     }
+    setIsHydrated(true);
   }, []);
+
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (isHydrated) {
       localStorage.setItem("isSidebarOpen", JSON.stringify(isSidebarOpen));
     }
-  }, [isSidebarOpen]);
+  }, [isSidebarOpen, isHydrated]);
 
   return (
-    <SidebarContext.Provider value={{ isSidebarOpen, setIsSidebarOpen }}>
+    <SidebarContext.Provider
+      value={{ isSidebarOpen, setIsSidebarOpen, isHydrated }}
+    >
       {children}
     </SidebarContext.Provider>
   );
