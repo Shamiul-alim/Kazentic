@@ -42,18 +42,18 @@ export default function EmailSection() {
         return <Inbox />;
       case "Sent":
         return <Sent />;
-      // case "All Mail":
-      //   return <AllMail />;
-      // case "Draft":
-      //   return <Draft />;
-      // case "Starred":
-      //   return <Starred />;
-      // case "Spam":
-      //   return <Spam />;
-      // case "Trash":
-      //   return <Trash />;
-      // default:
-      //   return <Inbox />;
+      case "All Mail":
+        return <AllMail />;
+      case "Draft":
+        return <Draft />;
+      case "Starred":
+        return <Starred />;
+      case "Spam":
+        return <Spam />;
+      case "Trash":
+        return <Trash />;
+      default:
+        return <Inbox />;
     }
   };
 

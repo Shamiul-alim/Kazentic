@@ -181,7 +181,7 @@ export default function Sent() {
             }`}
           >
             <div className="text-[1rem] sm:text-[1.25rem] font-semibold text-[#191F38] leading-[2.125rem] ">
-              Inbox
+              Sent
             </div>
             <div
               className="text-[#697588] cursor-pointer"

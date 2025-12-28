@@ -4,19 +4,17 @@ import emailInboxData from "@/data/emailData.json";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { io, Socket } from "socket.io-client";
 
 type Email = {
-  id: number;
+  uid: number;
   from: string;
   subject: string;
   date: string;
-  text: string;
+  textSnippet: string;
   isDraft: boolean;
   isStarred: boolean;
   icon: string;
-};
-type Props = {
-  emails: Email[];
 };
 
 export default function Spam() {
@@ -32,6 +30,8 @@ export default function Spam() {
     return text.substring(0, limit) + " ...";
   };
   const [emails, setEmails] = React.useState<Email[]>([]);
+  const socketRef = React.useRef<Socket | null>(null);
+
   React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -45,19 +45,54 @@ export default function Spam() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
+
     const fetchEmails = async () => {
-      const response = await fetch("http://localhost:5000/emails/spam");
-      const data = await response.json();
-      if (data.success) {
-        setEmails(data.emails);
+      try {
+        const response = await fetch("http://localhost:5000/emails/spam");
+        const data = await response.json();
+        if (data.success) {
+          setEmails(data.emails);
+        } else {
+          console.error("Failed to fetch emails");
+        }
+      } catch (error) {
+        console.error("Error fetching emails:", error);
       }
     };
 
     fetchEmails();
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+
+    socketRef.current = io("http://localhost:5000");
+
+    socketRef.current.on("connect", () => {
+      console.log("Connected to Email WebSocket");
+
+      socketRef.current?.emit("join_folder", "spam");
+    });
+
+    socketRef.current.on("new_emails", (incoming: Email[]) => {
+      console.log("Real-time update received in frontend:", incoming);
+
+      setEmails((current) => {
+        const existingUids = new Set(current.map((e) => e.uid));
+        const trulyNew = incoming.filter((e) => !existingUids.has(e.uid));
+
+        if (trulyNew.length === 0) return current;
+
+        const newList = [...trulyNew, ...current];
+        return newList.sort((a, b) => b.uid - a.uid);
+      });
+    });
+
+    return () => {
+      if (socketRef.current) {
+        socketRef.current.disconnect();
+      }
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
   const handleSelectAll = () => {
-    setSelectedEmails(emails.map((e) => e.id));
+    setSelectedEmails(emails.map((e) => e.uid));
   };
 
   return (
@@ -298,22 +333,22 @@ export default function Spam() {
       {/* Emails List */}
       <div className=" my-2.5 sm:my-3 lg:my-2.5  mx-2.5 md:mx-3  lg:mx-4">
         {emails.map((email) => (
-          <Link href={`/email/${email.id}`} key={email.id}>
+          <Link href={`/email/${email.uid}`} key={email.uid}>
             <div className="h-[3.25rem] rounded-lg bg-[#FDFDFD] border border-[#EBEBEB] flex flex-row items-center justify-between pl-4 lg:pl-6 pr-4 cursor-pointer mb-2.5 sm:mb-3 lg:mb-2.5">
               <div className="flex items-center gap-4">
                 <div className="gap-2  md:gap-4 lg:gap-6 flex flex-row items-center">
                   <div className="flex-shrink-0">
                     <Image
                       src={
-                        selectedEmails.includes(email.id)
+                        selectedEmails.includes(email.uid)
                           ? "/assets/checked.svg"
-                          : email.icon
+                          : email.icon || "/assets/Kemail.svg"
                       }
                       alt="icon"
                       width={20}
                       height={20}
                       className={`${
-                        selectedEmails.includes(email.id) ? "mr-2" : ""
+                        selectedEmails.includes(email.uid) ? "mr-2" : ""
                       } `}
                     />
                   </div>
@@ -336,7 +371,7 @@ export default function Spam() {
                     {email.from}
                   </span>
                   <span className="text-[0.8rem] sm:text-[0.875rem] font-medium text-[#191F38] ml-0 md:ml-10 lg:ml-28 xl:ml-38">
-                    {limitChars(email.subject, 20)}🎉
+                    {limitChars(email.subject, 20)}
                   </span>
                 </div>
               </div>
