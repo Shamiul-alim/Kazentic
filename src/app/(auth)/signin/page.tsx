@@ -13,12 +13,7 @@ export default function Signin() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FieldValues>({
-    defaultValues: {
-      email: "admin",
-      password: "admin",
-    },
-  });
+  } = useForm<FieldValues>();
   const router = useRouter();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
